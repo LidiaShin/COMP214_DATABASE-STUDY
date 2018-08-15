@@ -47,7 +47,10 @@ namespace COMP214_PetShopGUI
                     while (reader1.Read())
                     {
                         pname.Text = reader1["NAME"].ToString();
-                       
+                        pbirthday.Text = reader1["BIRTHDAY"].ToString();
+                        oid.Text = reader1["NAME"].ToString();
+
+
                     }
                 }
 

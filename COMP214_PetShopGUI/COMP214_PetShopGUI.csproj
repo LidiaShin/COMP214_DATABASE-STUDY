@@ -71,6 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\petshop18.css" />
+    <Content Include="images\homeImage.jpg" />
     <Content Include="TestConnectionPage.aspx" />
     <Content Include="testTblPET.aspx" />
     <Content Include="Web.config">
@@ -79,6 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionClass.cs" />
+    <Compile Include="petshop18.Master.cs">
+      <DependentUpon>petshop18.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="petshop18.Master.designer.cs">
+      <DependentUpon>petshop18.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestConnectionPage.aspx.cs">
       <DependentUpon>TestConnectionPage.aspx</DependentUpon>
@@ -98,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="petshop18.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="petshop18.master.cs" Inherits="COMP214_PetShopGUI.petshop18" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>final Review</title>
+ 
+
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dosis|Love+Ya+Like+A+Sister|Varela+Round|Julius+Sans+One" rel="stylesheet">
+<link href="css/petshop18.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+<form id="form1" runat="server">
+
+<div id="header">  
+	 PETSHOP 18 
+</div>  
+
+<ul>  
+        <li runat="server" id="TEST1"><a href="testTblPET.aspx">TEST1</a></li>  
+        <li runat="server" id="TEST2"><a href="">TEST2</a></li>  
+        <li runat="server" id="TEST3"><a href="">TEST3</a></li>  
+		
+</ul>  
+
+<div id="loginArea" runat="server"> 
+<asp:Button ID="TEST4" runat="server" Text="TEST1" CssClass="btn" PostBackUrl="~/testTblPET.aspx" />
+<asp:Button ID="TEST5" runat="server" Text="TEST2" CssClass="btn"  />
+<asp:Button ID="TEST6" runat="server" Text="TEST3" CssClass="btn" />
+</div>
+
+<div id="mainArea">
+	
+<div id="contentArea" >
+<asp:ContentPlaceHolder ID="main" runat="server">  
+</asp:ContentPlaceHolder> 
+</div>		
+
+
+ 
+
+</div>	
+
+<footer id="footer">  
+ⓒ 2018 Centennial COMP214 GROUP PROJECT  &nbsp;&nbsp;&nbsp;&nbsp;
+</footer> 
+</form>
+
+
+
+
+
+</body>
+</html>
