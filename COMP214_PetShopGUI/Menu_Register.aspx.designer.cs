@@ -10,87 +10,123 @@
 namespace COMP214_PetShopGUI {
     
     
-    public partial class petshop18 {
+    public partial class registerCustomer {
         
         /// <summary>
-        /// form1 control.
+        /// fName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox fName;
         
         /// <summary>
-        /// REISSUE_PRESCRIPTION control.
+        /// lName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl REISSUE_PRESCRIPTION;
+        protected global::System.Web.UI.WebControls.TextBox lName;
         
         /// <summary>
-        /// TEST2 control.
+        /// pNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST2;
+        protected global::System.Web.UI.WebControls.TextBox pNumber;
         
         /// <summary>
-        /// TEST3 control.
+        /// eMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST3;
+        protected global::System.Web.UI.WebControls.TextBox eMail;
         
         /// <summary>
-        /// loginArea control.
+        /// emailCheck control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginArea;
+        protected global::System.Web.UI.WebControls.Label emailCheck;
         
         /// <summary>
-        /// TEST4 control.
+        /// register control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST4;
+        protected global::System.Web.UI.WebControls.Button register;
         
         /// <summary>
-        /// TEST5 control.
+        /// OwnerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST5;
+        protected global::System.Web.UI.WebControls.DropDownList OwnerID;
         
         /// <summary>
-        /// TEST6 control.
+        /// pname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST6;
+        protected global::System.Web.UI.WebControls.TextBox pname;
         
         /// <summary>
-        /// main control.
+        /// year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder main;
+        protected global::System.Web.UI.WebControls.DropDownList year;
+        
+        /// <summary>
+        /// month control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList month;
+        
+        /// <summary>
+        /// day control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList day;
+        
+        /// <summary>
+        /// registerPet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registerPet;
+        
+        /// <summary>
+        /// checking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label checking;
     }
 }

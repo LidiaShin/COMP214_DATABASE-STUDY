@@ -73,14 +73,37 @@
   <ItemGroup>
     <Content Include="css\petshop18.css" />
     <Content Include="images\homeImage.jpg" />
+    <Content Include="MedicationRegister.aspx" />
+    <Content Include="Menu_IssuePresc.aspx" />
+    <Content Include="Menu_Register.aspx" />
+    <Content Include="Menu_ReIssuePresc.aspx" />
     <Content Include="TestConnectionPage.aspx" />
-    <Content Include="testTblPET.aspx" />
+    <Content Include="home.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionClass.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="MedicationRegister.aspx.cs">
+      <DependentUpon>MedicationRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MedicationRegister.aspx.designer.cs">
+      <DependentUpon>MedicationRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedList.cs" />
+    <Compile Include="Menu_IssuePresc.aspx.cs">
+      <DependentUpon>Menu_IssuePresc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_IssuePresc.aspx.designer.cs">
+      <DependentUpon>Menu_IssuePresc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerID.cs" />
+    <Compile Include="Pet.cs" />
+    <Compile Include="PetID.cs" />
     <Compile Include="petshop18.Master.cs">
       <DependentUpon>petshop18.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -88,7 +111,22 @@
     <Compile Include="petshop18.Master.designer.cs">
       <DependentUpon>petshop18.Master</DependentUpon>
     </Compile>
+    <Compile Include="PrescList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menu_Register.aspx.cs">
+      <DependentUpon>Menu_Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Register.aspx.designer.cs">
+      <DependentUpon>Menu_Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_ReIssuePresc.aspx.cs">
+      <DependentUpon>Menu_ReIssuePresc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_ReIssuePresc.aspx.designer.cs">
+      <DependentUpon>Menu_ReIssuePresc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestConnectionPage.aspx.cs">
       <DependentUpon>TestConnectionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,12 +135,12 @@
       <DependentUpon>TestConnectionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestTablePET.cs" />
-    <Compile Include="testTblPET.aspx.cs">
-      <DependentUpon>testTblPET.aspx</DependentUpon>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="testTblPET.aspx.designer.cs">
-      <DependentUpon>testTblPET.aspx</DependentUpon>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

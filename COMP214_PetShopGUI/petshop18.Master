@@ -21,9 +21,9 @@
 </div>  
 
 <ul>  
-        <li runat="server" id="TEST1"><a href="testTblPET.aspx">TEST1</a></li>  
-        <li runat="server" id="TEST2"><a href="">TEST2</a></li>  
-        <li runat="server" id="TEST3"><a href="">TEST3</a></li>  
+        <li runat="server" id="REISSUE_PRESCRIPTION"><a href="reIssuePrescription.aspx">REISSUE PRESCRIPTION</a></li>  
+        <li runat="server" id="TEST2"><a href="http://www.google.com">TEST2</a></li>  
+        <li runat="server" id="TEST3"><a href="http://www.google.com">TEST3</a></li>  
 		
 </ul>  
 

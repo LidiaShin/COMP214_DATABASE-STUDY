@@ -10,87 +10,60 @@
 namespace COMP214_PetShopGUI {
     
     
-    public partial class petshop18 {
+    public partial class testTblPET {
         
         /// <summary>
-        /// form1 control.
+        /// homeImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Image homeImage;
         
         /// <summary>
-        /// REISSUE_PRESCRIPTION control.
+        /// petid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl REISSUE_PRESCRIPTION;
+        protected global::System.Web.UI.WebControls.TextBox petid;
         
         /// <summary>
-        /// TEST2 control.
+        /// check control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST2;
+        protected global::System.Web.UI.WebControls.Button check;
         
         /// <summary>
-        /// TEST3 control.
+        /// pname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST3;
+        protected global::System.Web.UI.WebControls.Label pname;
         
         /// <summary>
-        /// loginArea control.
+        /// pbirthday control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginArea;
+        protected global::System.Web.UI.WebControls.Label pbirthday;
         
         /// <summary>
-        /// TEST4 control.
+        /// oid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST4;
-        
-        /// <summary>
-        /// TEST5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST5;
-        
-        /// <summary>
-        /// TEST6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TEST6;
-        
-        /// <summary>
-        /// main control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder main;
+        protected global::System.Web.UI.WebControls.Label oid;
     }
 }

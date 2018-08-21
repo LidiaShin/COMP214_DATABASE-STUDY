@@ -23,15 +23,15 @@ namespace COMP214_PetShopGUI
 
        
 
-        string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string cs = ConfigurationManager.ConnectionStrings["petshop2018"].ConnectionString;
 
 
         protected void check_Click(object sender, EventArgs e)
         {
             petID = petid.Text;
 
-            TestTablePET newInfo = new TestTablePET(petID,ownerID,petName,petBirthday);
-
+            //TestTablePET newInfo = new TestTablePET(petID,ownerID,petName,petBirthday);
+            // 에러발생 why can't use object class?
             
             using (OracleConnection cn = new OracleConnection(cs))
 
@@ -56,6 +56,7 @@ namespace COMP214_PetShopGUI
 
                 finally
                 {
+                    Session["login"] = petID;
                     cn.Close();
                 }
             }

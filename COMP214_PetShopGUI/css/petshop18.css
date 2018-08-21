@@ -1,7 +1,7 @@
 ﻿
 
 
-/*head section*/
+/*master page */
 #header {
 	background-color:white;
 	text-align: center;
@@ -15,7 +15,6 @@
 	vertical-align:top;
 }
 
-/*menu section*/
 
 ul {
 	text-align: center;
@@ -50,30 +49,31 @@ li a:hover {
 }
 
 
-/*login & sitemap section*/
 #loginArea {
-	background-color: #d8dde6;
-	
+	background-color: #d8dde6;	
 	text-align: right;
 	padding: 0px;
 }
 
-.btn {
+.Btn {
 	font-family: 'Julius Sans One', sans-serif;
 	font-weight: 700;
 	color: #324468;
-	font-size:10px;
+	font-size:14px;
 }
 
-	.btn:hover {
+	.Btn:hover {
 		color:palevioletred;
 		font-weight:900;
 	}
 
 
+
+
 #mainArea {
 	background-color: #f3fbf6;
-	padding:20px;
+	padding: 20px;
+	font-family: DengXian;
 }
 
 
@@ -81,9 +81,7 @@ li a:hover {
 	width: 90%;
 	height: 420px;
 	padding: 10px;
-	margin:auto;
-	
-	
+	margin:auto;	
 }
 
 #footer {
@@ -94,537 +92,21 @@ li a:hover {
 	font-size: 16px;
 }
 
-.wrapper {
-	
-	width: 95%;
-	height: 85%;
-	padding: 10px;
-	
-	margin:auto;
-}
-
-
-
-.wrapper_home_right {
-	float: right;
-	width: 50%;
-	height: 85%;
-	
-	
-}
-
-
-
-.wrapper_right {
-	float: right;
-	width: 60%;
-	height: 85%;
-	padding: 10px;
-	
-	border: 2px solid #777f7b;
-}
-
-.wrapper_left {
-	float: left;
-	width: 35%;
-	height: 85%;	
-	border: 2px solid #777f7b;
-	padding: 10px;
-}
-
-
-/*Catalog Page*/
-
-.wrapper_inside_detail {
-	margin-top: 30px;
-	width: 90%;
-	height: 20%;
-	font-family:Verdana;
-	font-size: 9px;
-}
-
-.wrapper_inside_picture {
-	
-	margin: auto;
-	width: 90%;
-	height: 70%;
-}
-
-
-/*item Detail*/
-.itemPicture {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	
-}
-
-
-/*item Sorting*/
-#linkCats {
-	text-align: left;
-	font-family:Verdana;
-	font-size: 16px;
-	color:red;
-}
-
-.linkCat {
-	font-family: 'Julius Sans One', sans-serif;
-	font-size: 16px;
-	color: #d4004b;
-	background-color: white;
-	border: 1px solid pink;
-	border-radius: 2px;
-	margin-right: 10px;
-}
-
-	.linkCat:hover {
-		text-decoration: none;
-		color: #3b383c;
-		background-color: lightpink;		
-	}
-
-
-/*item List Table*/
-#itemTable {
-	margin: 20px auto auto auto;
-	font-family: 'Varela Round',sans-serif;
-	font-size: 12px;
-	text-align: center;
-	
-}
-
-#itemListGroup {
-	font-family: 'Varela Round',sans-serif;
-	background-color: #fae5ed ;
-	font-size: 16px;
-}
-
-.itemDetailBtn {
-	background-color: #cec4cc;
-	color: #4c222a ;
-	border-radius:2px;
-}
-
-	.itemDetailBtn:hover {		
-		color:red;
-	}
-
-.itemAddBtn {
-	background-color: #662e38 ;
-	color:white;
-	border-radius: 2px;
-}
-	.itemAddBtn:hover {
-		color: yellow;
-	}
-
-
-	/*Search Page*/
-#searchHeading {
-	font-size: 30px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #2c4471 ;
-	-moz-box-shadow: 1px 1px 3px 2px #99b7ed;
-	-webkit-box-shadow: 1px 1px 3px 2px #99b7ed;
-	box-shadow: 1px 1px 3px 2px #99b7ed;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-#searchBox {
-	padding: 30px;
-	-moz-box-shadow: 0px 1px 2px 2px #23365a;
-	-webkit-box-shadow: 0px 1px 2px 2px #23365a;
-	box-shadow: 0px 1px 1px 1px #23365a;
-	border-radius: 3px;
-	background-color: white;
-	font-family: 'Dosis', sans-serif;	
-	color: #2c4471;
-}
-
-.searchBtn {
-	float: right;
-	font-size: 24px;
-	background-color: #13466A;
-	border-radius:3px;
-	color:white;
-}
-
-/*myPage*/
-
-.mypageHeading {
-	font-size: 30px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #423B61;
-	-moz-box-shadow: 1px 1px 3px 2px #5a4a48 ;
-	-webkit-box-shadow: 1px 1px 3px 2px #5a4a48;
-	box-shadow: 1px 1px 3px 2px #5a4a48;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-
-.mypageBox {
-	padding: 30px;
-	-moz-box-shadow: 0px 1px 2px 2px #433736;
-	-webkit-box-shadow: 0px 1px 2px 2px #433736;
-	box-shadow: 0px 1px 1px 1px #433736;
-	border-radius: 3px;
-	background-color: #fcf7f7 ;
-	font-family: 'Varela Round',sans-serif;
-	font-size: 20px;
-	color: #433736;
-}
-
-
-#mycartBox {
-	padding: 2px;
-	-moz-box-shadow: 1px 1px 3px 2px #0c384a;
-	-webkit-box-shadow: 1px 1px 3px 2px #0c384a;
-	box-shadow: 1px 1px 3px 2px #0c384a ;
-	border-radius: 3px;
-	background-color: #f9fcfe;
-	font-family: 'Varela Round',sans-serif;
-	font-size: 12px;
-	color: #282e31;
-}
-
-.shopBtn {
-	font-family: 'Julius Sans One', sans-serif;
-	font-size: 16px;
-	color: #d4004b;
-	background-color: white;
-	border: 2px solid pink;
-	border-radius: 10px;
-	text-align:center;
-}
-
-
-.deleteBtn {
-	font-family: 'Julius Sans One', sans-serif;
-	font-size: 12px;
-	color: blue;
-	background-color: white;
-	border: 2px solid skyblue;
-	border-radius: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-	/*contact Page*/
-	.contactHeading {
-	font-size: 30px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #6a3359 ;
-	-moz-box-shadow: 1px 1px 3px 2px #ffd5dd;
-	-webkit-box-shadow: 1px 1px 3px 2px #ffd5dd;
-	box-shadow: 1px 1px 3px 2px #ffd5dd;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-.contactBtn {
-	float: right;
-	font-size: 18px;
-	background-color: deeppink;
-	border-radius: 3px;
-	color: white;
-	margin-top:10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-/*signup Page*/
-#signupHeading {
-	width:60%;
-	font-size: 20px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #203721 ;
-	-moz-box-shadow: 1px 1px 3px 2px #2c5d3b;
-	-webkit-box-shadow: 1px 1px 3px 2px #2c5d3b;
-	box-shadow: 1px 1px 3px 2px #2c5d3b;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-	display:inline;
-}
-
-
-#signupBox {
-	text-align:left;
-	padding-left: 200px;
-	margin-top:100px;
-	-moz-box-shadow: 0px 1px 2px 2px #23365a;
-	-webkit-box-shadow: 0px 1px 2px 2px #23365a;
-	box-shadow: 0px 1px 1px 1px #23365a;
-	border-radius: 3px;
-	background-color: white;
-	font-family: 'Dosis', sans-serif;
-	color: #2c4471;
-    float:right;
-	width:60%;
-}
-
-.signupBtn {
-	width: 20%;
-	font-size: 20px;
-	background-color: #e1b6ca ;
-	border-radius: 10px;
-	color: white;
-	margin-top:20px;
-	margin-left:400px;
-	margin-bottom:-50px;
-}
-/*login Page*/
-#loginHeading {
-	font-size: 30px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #405d91;
-	-moz-box-shadow: 1px 1px 3px 2px #405d91;
-	-webkit-box-shadow: 1px 1px 3px 2px #405d91;
-	box-shadow: 1px 1px 3px 2px #405d91;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-.loginBtn {
-	
-	font-size: 14px;
-	background-color: #3066a2 ;
-	border-radius: 10px;
-	color: white;
-}
-
-
-
-
-.form-signin {
-	width: 100px;
-	padding: 15px 35px 45px;
-	margin: 0 auto;
-	background-color: #fff;
-	border: 1px solid rgba(0,0,0,0.1);
-}
-
-
-.form-control {
-	position: relative;
-	font-size: 16px;
-	height: auto;
-	padding: 10px;
-}
-
-
-* {
-	box-sizing: border-box
-}
-
-
-
-
-/*comment Page*/
-#commentHeading {
-	font-size: 30px;
-	font-family: 'Dosis', sans-serif;
-	text-align: center;
-	color: #800080;
-	-moz-box-shadow: 1px 1px 3px 2px #800080;
-	-webkit-box-shadow: 1px 1px 3px 2px #800080;
-	box-shadow: 1px 1px 3px 2px #800080;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-#commentArea {
-	font-family: 'Dosis', sans-serif;
-	font-size: 14px;
-	color: #330033;
-	background-color: white;
-	border: 1px solid pink;
-	border-radius: 2px;
-	margin-top: 10px;
-	padding-left:10px;
-    
-}
-
-
-#commentTable {
-	margin: 10px auto auto auto;
-	font-family: 'Varela Round',sans-serif;
-	font-size: 12px;
-	text-align: center;
-	width:100%;
-}
-
-#commentListGroup {
-	font-family: 'Varela Round',sans-serif;
-	background-color: #d8b2d8;
-	font-size: 16px;
-	color: #330033;
-}
-
-
-
-
 
 
 /*homepage*/
-/* Slideshow container */
-.slideshow-container {
-	width: 500px;
-	position: relative;
-	float: left;
+
+.signupBox {
+	padding: 20px;
 	
-	
+	text-align:left;
+	float:right;
+	vertical-align:baseline;
+	-moz-box-shadow: 0px 1px 2px 2px #23365a;
+	-webkit-box-shadow: 0px 1px 2px 2px #23365a;
+	box-shadow: 0px 1px 1px 1px #23365a;
+	border-radius: 3px;
+	background-color: white;
+	font-family: 'Dosis', sans-serif;
+	color: #2c4471;
 }
-
-
-/* Hide the images by default */
-.mySlides {
-	display: none;
-	
-	
-}
-
-.homeImages {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 300px;
-	height: 300px;
-	
-}
-
-
-.active {
-	background-color: #717171;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-	cursor: pointer;
-	position: absolute;
-	top: 50%;
-	width: auto;
-	margin-top: -22px;
-	padding: 16px;
-	color: white;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-	border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-	right: 0;
-	border-radius: 3px 0 0 3px;
-}
-
-	/* On hover, add a black background color with a little bit see-through */
-	.prev:hover, .next:hover {
-		background-color: rgba(0,0,0,0.8);
-	}
-
-/* Caption text */
-.text {
-	color: #f2f2f2;
-	font-size: 15px;
-	padding: 8px 12px;
-	position: absolute;
-	bottom: 8px;
-	width: 100%;
-	text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-	cursor: pointer;
-	height: 15px;
-	width: 15px;
-	
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
-}
-
-	.active, .dot:hover {
-		background-color: #717171;
-	}
-
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 2s;
-}
-
-@-webkit-keyframes fade {
-	from {
-		opacity: .4
-	}
-
-	to {
-		opacity: 1
-	}
-}
-
-@keyframes fade {
-	from {
-		opacity: .4
-	}
-
-	to {
-		opacity: 1
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
