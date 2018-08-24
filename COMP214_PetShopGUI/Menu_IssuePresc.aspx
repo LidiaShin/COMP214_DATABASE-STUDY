@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
 
-* *Start Isssue New Prescription * * <hr />
+	* *Start Issue New Prescription * * <hr />
 
 1. Please select Pet's ID &nbsp; &nbsp;
 <asp:DropDownList ID="PetIDList" runat="server"></asp:DropDownList>&nbsp;
@@ -51,14 +51,23 @@
 <asp:Label ID="med5qty" runat="server" Text="qty5" BackColor="#FFFFE8"></asp:Label>
 <br />
 -->
-<asp:Literal ID="meditemslist" runat="server"></asp:Literal>
+<div>
 
-<br />
+<div class="meditem box">
+<asp:Literal ID="meditemslist" runat="server"></asp:Literal>
+</div>
+
+<div class="medqty box">
+<asp:Literal ID="meditemsqty" runat="server"></asp:Literal>
+</div>
+
+</div>
+
+<div>
 3. Confirm <br />
 
 4. Issue <br />
-
-
+</div>
 
 
 

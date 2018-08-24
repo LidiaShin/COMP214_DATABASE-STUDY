@@ -88,20 +88,53 @@ namespace COMP214_PetShopGUI
 
         string MedName;
         string MedQty;
+
         string MedItems;
+        string MedItemQtys;
+        
         protected void AddMed_Click(object sender, EventArgs e)
+        {
+          
+            if (meditemslist.Text == "Please add new med item" && meditemsqty.Text == " and quantity")
+            {
+                meditemslist.Text = "";
+                meditemsqty.Text = "";
+                fillPresc();
+            }
+            else
+            {
+                fillPresc();
+            } 
+        } 
+        
+        public void fillPresc()
         {
             MedName = MedList.SelectedItem.ToString();
             MedQty = InputQty.Text;
-            MedItems = MedName + " " + MedQty + "<br>";
-            meditemslist.Text += MedItems;
-        }
 
+            MedItems = "  " + MedName + "<br>";
+            MedItemQtys = "  " + MedQty + "<br>";
+
+            meditemslist.Text += MedItems;
+            meditemsqty.Text += MedItemQtys;
+        } 
+
+        
         protected void DelMed_Click(object sender, EventArgs e)
         {
-            //MedItemList = MedItemList.Remove(MedItemList.Length - 1);
-            //meditemlist.Text = MedItemList;
+            try
+            {
+                meditemslist.Text = meditemslist.Text.Remove(meditemslist.Text.LastIndexOf("  "));
+                meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
 
-        }
+            }
+
+            catch
+            {
+                meditemslist.Text = "Please add new med item";
+                meditemsqty.Text = " and quantity";
+            } 
+           
+        } 
     }
 }

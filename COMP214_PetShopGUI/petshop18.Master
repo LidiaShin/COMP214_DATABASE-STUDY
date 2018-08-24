@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>final Review</title>
+    <title>PetShop 18</title>
  
 
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dosis|Love+Ya+Like+A+Sister|Varela+Round|Julius+Sans+One" rel="stylesheet">
@@ -17,20 +17,20 @@
 <form id="form1" runat="server">
 
 <div id="header">  
-	 PETSHOP 18 
+ADV DATABASE CONCEPT GROUP PROJECT 
 </div>  
 
 <ul>  
-        <li runat="server" id="REISSUE_PRESCRIPTION"><a href="reIssuePrescription.aspx">REISSUE PRESCRIPTION</a></li>  
-        <li runat="server" id="TEST2"><a href="http://www.google.com">TEST2</a></li>  
-        <li runat="server" id="TEST3"><a href="http://www.google.com">TEST3</a></li>  
-		
+        <li runat="server" id="PRESC"><asp:Button ID="PrescBtn" runat="server" Text="Prescription" CssClass="mainBtn" BorderStyle="None" OnClick="PrescBtn_Click" /></li>  
+        <li runat="server" id="ADMIN"><asp:Button ID="AdminBtn" runat="server" Text="Administration" CssClass="mainBtn" BorderStyle="None" /></li>  
+        <li runat="server" id="TEST"><asp:Button ID="CusBtn" runat="server" Text="Customer" CssClass="mainBtn" BorderStyle="None" OnClick="CusBtn_Click"  /></li>  
 </ul>  
 
-<div id="loginArea" runat="server"> 
-<asp:Button ID="TEST4" runat="server" Text="TEST1" CssClass="btn" PostBackUrl="~/testTblPET.aspx" />
-<asp:Button ID="TEST5" runat="server" Text="TEST2" CssClass="btn"  />
-<asp:Button ID="TEST6" runat="server" Text="TEST3" CssClass="btn" />
+<div id="Submenu" runat="server"> 
+<asp:Button ID="NewPresc" runat="server" Text="IssueNew" CssClass="btn" BorderStyle="None" PostBackUrl="~/Menu_IssuePresc.aspx" Visible="False" BackColor="Wheat" />
+<asp:Button ID="RePresc" runat="server" Text="ReIssue" CssClass="btn" BorderStyle="None" PostBackUrl="~/Menu_ReIssuePresc.aspx" Visible="False" BackColor="Wheat"/>
+<asp:Button ID="Register" runat="server" Text="Register" CssClass="btn" BorderStyle="None"  Visible="False" PostBackUrl="~/Menu_Register.aspx" BackColor="Wheat" Style="margin-left:340px;"/>
+<asp:Button ID="NewAppt" runat="server" Text="NewAppointment" CssClass="btn" BorderStyle="None"  Visible="False"  BackColor="Wheat" PostBackUrl="~/Menu_NewAppointment.aspx" />
 </div>
 
 <div id="mainArea">

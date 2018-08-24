@@ -10,123 +10,114 @@
 namespace COMP214_PetShopGUI {
     
     
-    public partial class petshop18 {
+    public partial class Menu_NewAppointment {
         
         /// <summary>
-        /// form1 control.
+        /// vetIDList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList vetIDList;
         
         /// <summary>
-        /// PRESC control.
+        /// cusIDList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PRESC;
+        protected global::System.Web.UI.WebControls.DropDownList cusIDList;
         
         /// <summary>
-        /// PrescBtn control.
+        /// petIDList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PrescBtn;
+        protected global::System.Web.UI.WebControls.DropDownList petIDList;
         
         /// <summary>
-        /// ADMIN control.
+        /// year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ADMIN;
+        protected global::System.Web.UI.WebControls.DropDownList year;
         
         /// <summary>
-        /// AdminBtn control.
+        /// month control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AdminBtn;
+        protected global::System.Web.UI.WebControls.DropDownList month;
         
         /// <summary>
-        /// TEST control.
+        /// day control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST;
+        protected global::System.Web.UI.WebControls.DropDownList day;
         
         /// <summary>
-        /// CusBtn control.
+        /// time control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CusBtn;
+        protected global::System.Web.UI.WebControls.DropDownList time;
         
         /// <summary>
-        /// Submenu control.
+        /// price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Submenu;
+        protected global::System.Web.UI.WebControls.TextBox price;
         
         /// <summary>
-        /// NewPresc control.
+        /// seeDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewPresc;
+        protected global::System.Web.UI.WebControls.Button seeDetail;
         
         /// <summary>
-        /// RePresc control.
+        /// check control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RePresc;
+        protected global::System.Web.UI.WebControls.Label check;
         
         /// <summary>
-        /// Register control.
+        /// sendEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Register;
+        protected global::System.Web.UI.WebControls.Button sendEmail;
         
         /// <summary>
-        /// NewAppt control.
+        /// saveAppointment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewAppt;
-        
-        /// <summary>
-        /// main control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder main;
+        protected global::System.Web.UI.WebControls.Button saveAppointment;
     }
 }

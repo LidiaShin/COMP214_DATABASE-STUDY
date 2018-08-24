@@ -13,5 +13,22 @@ namespace COMP214_PetShopGUI
         {
 
         }
+
+        protected void PrescBtn_Click(object sender, EventArgs e)
+        {
+            NewPresc.Visible = true;
+            RePresc.Visible = true;
+            Register.Visible = false;
+            NewAppt.Visible = false;
+
+        }
+
+        protected void CusBtn_Click(object sender, EventArgs e)
+        {
+            NewPresc.Visible = false;
+            RePresc.Visible = false;
+            Register.Visible = true;
+            NewAppt.Visible = true;
+        }
     }
 }

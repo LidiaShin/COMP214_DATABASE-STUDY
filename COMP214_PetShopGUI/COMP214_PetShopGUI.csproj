@@ -75,6 +75,7 @@
     <Content Include="images\homeImage.jpg" />
     <Content Include="MedicationRegister.aspx" />
     <Content Include="Menu_IssuePresc.aspx" />
+    <Content Include="Menu_NewAppointment.aspx" />
     <Content Include="Menu_Register.aspx" />
     <Content Include="Menu_ReIssuePresc.aspx" />
     <Content Include="TestConnectionPage.aspx" />
@@ -86,6 +87,7 @@
   <ItemGroup>
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerPets.cs" />
     <Compile Include="MedicationRegister.aspx.cs">
       <DependentUpon>MedicationRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,6 +102,13 @@
     </Compile>
     <Compile Include="Menu_IssuePresc.aspx.designer.cs">
       <DependentUpon>Menu_IssuePresc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_NewAppointment.aspx.cs">
+      <DependentUpon>Menu_NewAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_NewAppointment.aspx.designer.cs">
+      <DependentUpon>Menu_NewAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="OwnerID.cs" />
     <Compile Include="Pet.cs" />
@@ -142,6 +151,8 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VetAppointment.cs" />
+    <Compile Include="VetID.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

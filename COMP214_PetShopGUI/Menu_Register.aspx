@@ -23,8 +23,9 @@
 <td><asp:TextBox ID="eMail" runat="server"></asp:TextBox>
 <asp:Label ID="emailCheck" runat="server" Text="" BackColor="#CCCCFF" BorderStyle="None" ForeColor="#CC00CC"></asp:Label></td>
 </tr>
+
 </table>
-<asp:Button ID="register" runat="server" Text="Register" OnClick="register_Click" CssClass="Btn" /><br />
+<asp:Button ID="register" runat="server" Text="Register" OnClick="register_Click" CssClass="Btn" BorderStyle="None" /><br />
 <br /><br />
 
 * * Register New Pet * * <hr />
@@ -42,12 +43,14 @@
 
 <tr>
 <td>BirthDay: </td>
-<td><asp:DropDownList ID="year" runat="server"></asp:DropDownList></td>
-<td><asp:DropDownList ID="month" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectmonth" ></asp:DropDownList></td>
-<td><asp:DropDownList ID="day" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectdate"></asp:DropDownList></td>
+<td>
+<asp:DropDownList ID="year" runat="server"></asp:DropDownList>
+<asp:DropDownList ID="month" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectmonth" ></asp:DropDownList>
+<asp:DropDownList ID="day" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectdate"></asp:DropDownList>
+</td>
 </tr>
 </table>
-<asp:Button ID="registerPet" runat="server" Text="Add new pet" OnClick="registerPet_Click" CssClass="Btn" /><br />
+<asp:Button ID="registerPet" runat="server" Text="Add new pet" OnClick="registerPet_Click" CssClass="Btn" BorderStyle="None" /><br />
 <asp:Label ID="checking" runat="server" Text="Label"></asp:Label>
 
 </asp:Content>

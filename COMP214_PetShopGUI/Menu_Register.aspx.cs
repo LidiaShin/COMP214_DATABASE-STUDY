@@ -49,6 +49,8 @@ namespace COMP214_PetShopGUI
                 {
 
                 }
+
+
                 // Display Calendar with month, year and date
                 for (int i = 1; i <= 12; i++)
                 {
