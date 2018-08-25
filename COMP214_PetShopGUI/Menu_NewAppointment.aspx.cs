@@ -13,11 +13,20 @@ namespace COMP214_PetShopGUI
         // vet information IDs
         DataTable vids { get; set; }
 
-        // customer (owner) information IDs
+        // customer (owner) information IDs (DataTable)
         DataTable oids { get; set; }
 
-        // customer (owner) ID
+        // customer (owner) ID (string)
+        // 재활용 for email
         string Oid { get; set; }
+
+
+        // New Appointment Info Details
+        string VetID { get; set; }
+        string PetID { get; set; }
+        string VetApptTime { get; set; }
+        string VetApptNote { get; set; }
+        string VetApptPrice { get; set; }
 
         DataTable pids { get; set; } // 쓸수 있을까??
         DataTable pnames { get; set; } // 쓸수 있을까??
@@ -98,13 +107,24 @@ namespace COMP214_PetShopGUI
             }
         }
 
-        protected void selectmonth(object sender, EventArgs e)
+        /*protected void selectmonth(object sender, EventArgs e)
         {
             day.Items.Clear();
 
             for (int i = 1; i <= System.DateTime.DaysInMonth(int.Parse(year.SelectedValue), int.Parse(month.SelectedValue)); i++)
             {
                 day.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
+        }*/
+
+        protected void selectmonth(object sender, EventArgs e)
+        {
+            day.Items.Clear();
+
+            for (int i = 1; i <= System.DateTime.DaysInMonth(int.Parse(year.SelectedValue), int.Parse(month.SelectedValue)); i++)
+            {
+              
+                day.Items.Add(new ListItem(i.ToString("D2"), i.ToString("D2")));
             }
         }
 
@@ -133,17 +153,46 @@ namespace COMP214_PetShopGUI
         protected void seeDetail_Click(object sender, EventArgs e)
         {
             ApptDateTime = year.SelectedItem.ToString() + month.SelectedItem.ToString() + day.SelectedItem.ToString() + time.SelectedItem.ToString();
+
             check.Text = "Appointment for customer " + cusIDList.SelectedItem.ToString() + "<br>" +
                          "PetName" + petIDList.SelectedItem.ToString() + "<br>" +
                          "Appointment Date " + year.SelectedItem.ToString() + month.SelectedItem.ToString() + day.SelectedItem.ToString() + "<br>" +
                          "Appointment Time " + time.SelectedItem.ToString() + "<br>" +
                          "ApptDateTime: " + ApptDateTime;
+
             MailMsg = check.Text;
         }
 
 
         protected void saveAppointment_Click(object sender, EventArgs e)
         {
+            VetID = vetIDList.SelectedValue.ToString();
+            PetID = petIDList.SelectedValue.ToString();
+            VetApptTime = year.SelectedItem.ToString() + month.SelectedItem.ToString() + day.SelectedItem.ToString() + time.SelectedItem.ToString();
+            VetApptNote = note.Text;
+            VetApptPrice = price.Text;
+
+            VetAppointment newVetAppointment = new VetAppointment(VetID, PetID, VetApptTime, VetApptNote, VetApptPrice);
+            try
+            {
+                ConnectionClass.ConfirmNewAppointment(newVetAppointment);
+                Response.Write("<script type='text/javascript'>");
+                Response.Write("alert('New Appointment Saved Successfully! ');");
+                Response.Write("</script>");
+
+            }
+
+            catch
+            {
+                Response.Write("<script type='text/javascript'>");
+                Response.Write("alert('Failed ');");
+                Response.Write("</script>");
+            }
+
+            finally
+            {
+                check1.Text = VetID + PetID + VetApptTime + VetApptNote + VetApptPrice;
+            }
 
         }
     }

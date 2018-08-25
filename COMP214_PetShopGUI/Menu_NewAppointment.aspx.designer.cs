@@ -76,6 +76,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.DropDownList time;
         
         /// <summary>
+        /// note control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox note;
+        
+        /// <summary>
         /// price control.
         /// </summary>
         /// <remarks>
@@ -103,15 +112,6 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Label check;
         
         /// <summary>
-        /// sendEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sendEmail;
-        
-        /// <summary>
         /// saveAppointment control.
         /// </summary>
         /// <remarks>
@@ -119,5 +119,23 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button saveAppointment;
+        
+        /// <summary>
+        /// sendConfirmEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sendConfirmEmail;
+        
+        /// <summary>
+        /// check1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label check1;
     }
 }

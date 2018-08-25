@@ -85,6 +85,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentEmail.cs" />
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerPets.cs" />

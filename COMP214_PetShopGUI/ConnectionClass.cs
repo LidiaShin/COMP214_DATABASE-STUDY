@@ -23,7 +23,7 @@ namespace COMP214_PetShopGUI
 
         public static void AvoidDuplicateEmail(Customer newInfo)
         {
-            string aQuery = string.Format(@"select * from CUSTOMER where EMAIL = ('{0}')", newInfo.emailAddress);
+            string aQuery = string.Format(@"SELECT * FROM CUSTOMER where EMAIL = ('{0}')", newInfo.emailAddress);
             cmdString = new OracleCommand(aQuery, cntString);
 
             try
@@ -56,8 +56,10 @@ namespace COMP214_PetShopGUI
 
         public static void Register(Customer newInfo)
         {
-            string bQuery = string.Format(@"insert into CUSTOMER (ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE#) VALUES (CUSTOMERID_SEQ.nextval,'{0}','{1}','{2}',{3})", newInfo.firstName,newInfo.lastName,newInfo.emailAddress, Convert.ToInt64(newInfo.phoneNumber));
+            //string bQuery = string.Format(@"INSERT INTO CUSTOMER (ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE#) VALUES (CUSTOMERID_SEQ.nextval,'{0}','{1}','{2}',{3})", newInfo.firstName,newInfo.lastName,newInfo.emailAddress, Convert.ToInt64(newInfo.phoneNumber));
             // phone # Convert.ToInt64(newInfo.phoneNumber) caution! Convert.ToInt32 not working!
+
+            string bQuery = string.Format(@"INSERT INTO CUSTOMER (ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE#) VALUES (CUSTOMERID_SEQ.nextval,'{0}','{1}','{2}','{3}')", newInfo.firstName, newInfo.lastName, newInfo.emailAddress,newInfo.phoneNumber);
             cmdString = new OracleCommand(bQuery, cntString);
 
             try
@@ -75,7 +77,7 @@ namespace COMP214_PetShopGUI
 
         public static void OnwerIDList(OwnerID ids)
         {
-            string cQuery = string.Format(@"select ID,(FIRST_NAME || ' ' || LAST_NAME || ', ID: ' || ID) AS NAME from CUSTOMER");
+            string cQuery = string.Format(@"SELECT ID,(FIRST_NAME || ' ' || LAST_NAME || ', ID: ' || ID) AS NAME from CUSTOMER");
             cmdString = new OracleCommand(cQuery, cntString);
 
             try
@@ -100,7 +102,7 @@ namespace COMP214_PetShopGUI
      
         public static void RegisterPet(Pet newPet)
         {
-           string dQuery = string.Format(@"insert into PET (ID,OWNER_ID,NAME,BIRTHDAY) VALUES(petID_seq.nextval,{0},'{1}',TO_DATE('{2}','YYYY-MM-DD'))",newPet.OwnerID,newPet.PetName,newPet.PetBirthDay);
+           string dQuery = string.Format(@"INSERT INTO PET (ID,OWNER_ID,NAME,BIRTHDAY) VALUES(petID_seq.nextval,'{0}','{1}',TO_DATE('{2}','YYYY-MM-DD'))",newPet.OwnerID,newPet.PetName,newPet.PetBirthDay);
            cmdString = new OracleCommand(dQuery, cntString);
         
            try
@@ -201,7 +203,7 @@ VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
 
         public static void VetIDList(VetID ids)
         {
-            string hQuery = string.Format(@"select ID from VET");
+            string hQuery = string.Format(@"SELECT ID from VET");
             cmdString = new OracleCommand(hQuery, cntString);
 
             try
@@ -253,6 +255,47 @@ VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
             finally
             {
                 cntString.Close();
+            }
+        }
+
+
+        
+        public static void ConfirmNewAppointment(VetAppointment newappt)
+        {
+            string jQuery = string.Format(@"INSERT INTO VET_APPOINTMENT (ID,VET_ID,PET_ID,DATE_TIME,NOTES,PRICE,DISCOUNT)
+VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}','{4}',SEARCHDISCOUNT({1}))", newappt.VetID, newappt.PetID, newappt.VetApptTime, newappt.VetApptNote, newappt.VetApptPrice);
+            // Convert.ToInt64 주의  
+            // SEARCHDISCOUNT 는 펑션
+
+            cmdString = new OracleCommand(jQuery, cntString);
+            
+            try
+            {
+                cntString.Open();
+                cmdString.ExecuteNonQuery();
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
+        
+        public static void GetCustomerEmail(Customer cus)
+        {
+            string kQuery = string.Format(@"SELECT * FROM CUSTOMER WHERE ID = '{0}'",cus.ownerId);
+            cmdString = new OracleCommand(kQuery, cntString);
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
             }
         }
 

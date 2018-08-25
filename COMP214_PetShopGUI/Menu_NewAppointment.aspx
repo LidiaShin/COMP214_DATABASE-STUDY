@@ -33,6 +33,11 @@
 </tr>
 
 <tr>
+<td>Note: </td>
+<td><asp:TextBox ID="note" runat="server"></asp:TextBox>  </td> 
+</tr>
+
+<tr>
 <td>Price: </td>
 <td><asp:TextBox ID="price" runat="server"></asp:TextBox>  </td> 
 </tr>
@@ -44,8 +49,8 @@
 <div class="apptdetail">
 <asp:Label ID="check" runat="server" Text="New Appointment Detail display here" ></asp:Label>
 </div>
-<asp:Button ID="sendEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None" BackColor="#003399"  /> &nbsp;
-<asp:Button ID="saveAppointment" runat="server" Text="Save Appointment"  BorderStyle="None"   CssClass="Btn" BackColor="#009900" OnClick="saveAppointment_Click"/><br />
-
+<asp:Button ID="saveAppointment" runat="server" Text="Save Appointment"  BorderStyle="None"   CssClass="Btn" BackColor="#009900" OnClick="saveAppointment_Click"/>&nbsp;
+<asp:Button ID="sendConfirmEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None" BackColor="#003399"  /> <br />
+<asp:Label ID="check1" runat="server" Text="New Appointment Detail display here" ></asp:Label>
 
 </asp:Content>
