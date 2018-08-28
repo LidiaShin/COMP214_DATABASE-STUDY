@@ -73,6 +73,7 @@
   <ItemGroup>
     <Content Include="css\petshop18.css" />
     <Content Include="images\homeImage.jpg" />
+    <Content Include="js\petShop18.js" />
     <Content Include="MedicationRegister.aspx" />
     <Content Include="Menu_IssuePresc.aspx" />
     <Content Include="Menu_NewAppointment.aspx" />
@@ -165,6 +166,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using Oracle.ManagedDataAccess.Client;
 
@@ -121,7 +122,7 @@ namespace COMP214_PetShopGUI
 
         public static void PetIDList(PetID ids)
         {
-            string eQuery = string.Format(@"select ID from PET");
+            string eQuery = string.Format(@"SELECT ID,NAME from PET");
             cmdString = new OracleCommand(eQuery, cntString);
 
             try
@@ -281,25 +282,59 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
             }
         }
         
-        public static void GetCustomerEmail(Customer cus)
+        public static void GetApptDetail(Customer cus)
         {
             string kQuery = string.Format(@"SELECT * FROM CUSTOMER WHERE ID = '{0}'",cus.ownerId);
             cmdString = new OracleCommand(kQuery, cntString);
             try
             {
-
+                cntString.Open();
+                OracleDataAdapter da = new OracleDataAdapter(cmdString);
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                da.Fill(dt);
+                ds.Tables.Add(dt);
+                //newInfo.emailAddress = dt.Rows[0]["LAST_NAME"].ToString();
+                cus.emailAddress = dt.Rows[0]["EMAIL"].ToString();
+                cus.firstName = dt.Rows[0]["FIRST_NAME"].ToString();
+                cus.lastName = dt.Rows[0]["LAST_NAME"].ToString();
             }
-            catch
-            {
 
-            }
             finally
             {
-
+                cntString.Close();
             }
         }
 
+        public static void SendConfirmEmail(AppointmentEmail newEmail)
+        {
+            MailMessage msg = new MailMessage();
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
 
+            try
+            {
+                msg.Subject = newEmail.EmailSubject;
+                msg.Body = newEmail.EmailContent;
+                msg.From = new MailAddress("dodam.KGHS@gmail.com");
+                msg.To.Add(newEmail.CustomerEmail);
+
+                msg.IsBodyHtml = true;
+                client.Host = "smtp.gmail.com";
+                System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("dodam.KGHS@gmail.com", "1142311423");
+
+                client.Port = int.Parse("587"); //if using SSL 465
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicauthenticationinfo;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Send(msg);
+                
+            }
+            finally
+            {
+             
+            }
+        }
 
     }
 }

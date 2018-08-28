@@ -7,8 +7,16 @@ namespace COMP214_PetShopGUI
 {
     public class AppointmentEmail
     {
-        public string Subject;
-        public string Content;
-        public string CustomerEmail;
+        public string EmailSubject { get; set; }
+        public string EmailContent {get;set;}
+        public string CustomerEmail { get; set; }
+
+        public AppointmentEmail(string subject,string content,string cusemail)
+        {
+            EmailSubject = subject;
+            EmailContent = content;
+            CustomerEmail = cusemail;
+        }
+
     }
 }

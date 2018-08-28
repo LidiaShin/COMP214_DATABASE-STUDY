@@ -66,6 +66,7 @@ li {
 	background-color:cadetblue;
 	font-size:14px;
     border-radius:2px;
+	border-style:none;
 }
 
 	.Btn:hover {
@@ -128,18 +129,40 @@ li {
 }
 
 .meditem {
-	width: 55%;
-	background-color: azure;
-	border: 1px solid #777f7b;
+	width: 70%;
+	/*background-color: azure; */
+	/*border: 1px solid #777f7b;*/
 }
 
 .medqty {
-	width: 2%;
-	background-color: antiquewhite;
+	width: 10%;
+	/*background-color: antiquewhite;*/
 	color: brown;
-	border: 1px solid #777f7b;
+	/* border: 1px solid #777f7b; */
 	text-align:center;
 }
+
+
+
+.printPrescForm {
+	 border: 2px solid grey; 
+	 padding: 10px;
+}
+
+	.printPrescForm p {
+		text-align:center;
+		font-size:30px;
+		font-family:Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+.content {
+    font-family: 'Julius Sans One', sans-serif;
+	font-size: 14px;
+	border-style:none;
+}
+
+
+
 
 /*New Appointment Page*/
 .apptdetail {

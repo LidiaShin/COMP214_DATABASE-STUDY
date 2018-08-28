@@ -20,6 +20,19 @@ namespace COMP214_PetShopGUI
         // 재활용 for email
         string Oid { get; set; }
 
+        // 필요없는 정보?
+        string firstname { get; set; }
+        string lastname { get; set; }
+
+        string Thisemail { get; set; }
+        string phonenum { get; set; }
+
+        // Appointment Email
+
+        string subject { get; set; }
+        string content { get; set; }
+
+
 
         // New Appointment Info Details
         string VetID { get; set; }
@@ -30,6 +43,10 @@ namespace COMP214_PetShopGUI
 
         DataTable pids { get; set; } // 쓸수 있을까??
         DataTable pnames { get; set; } // 쓸수 있을까??
+
+
+
+      
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -148,19 +165,51 @@ namespace COMP214_PetShopGUI
             
         }
 
-        string MailMsg;
-        string ApptDateTime;
-        protected void seeDetail_Click(object sender, EventArgs e)
+        string apptPetName;
+        string apptDate;
+        string apptTime;
+        //string apptEmail { get; set; }
+        //string test = "1234";
+
+        
+
+
+        public void seeDetail_Click(object sender, EventArgs e)
         {
-            ApptDateTime = year.SelectedItem.ToString() + month.SelectedItem.ToString() + day.SelectedItem.ToString() + time.SelectedItem.ToString();
+            Oid = cusIDList.SelectedValue.ToString();
+            Customer thisCustomer = new Customer(Oid, firstname, lastname, Thisemail, phonenum);
 
-            check.Text = "Appointment for customer " + cusIDList.SelectedItem.ToString() + "<br>" +
-                         "PetName" + petIDList.SelectedItem.ToString() + "<br>" +
-                         "Appointment Date " + year.SelectedItem.ToString() + month.SelectedItem.ToString() + day.SelectedItem.ToString() + "<br>" +
-                         "Appointment Time " + time.SelectedItem.ToString() + "<br>" +
-                         "ApptDateTime: " + ApptDateTime;
+            try
+            {
 
-            MailMsg = check.Text;
+                ConnectionClass.GetApptDetail(thisCustomer);
+
+                apptPetName = petIDList.SelectedItem.ToString();
+                apptDate = day.SelectedItem.ToString() + " / " + month.SelectedItem.ToString() + " / " + year.SelectedItem.ToString();
+                apptTime = time.SelectedItem.ToString();
+                
+                //test = "3456";
+                fname.Text = thisCustomer.firstName;
+                details.Text = "Appointment for customer: " + cusIDList.SelectedItem.ToString() + "<br>" +
+                             "PetName: " + apptPetName + "<br>" +
+                             "Appointment Date: " + apptDate + "<br>" +
+                             "Appointment Time: " + apptTime + "<br>";
+                            
+                email.Text = thisCustomer.emailAddress;
+               
+            }
+
+            catch
+            {
+                Response.Write("<script type='text/javascript'>");
+                Response.Write("alert('Failed ');");
+                Response.Write("</script>");
+            }
+
+            finally
+            {
+               
+            }
         }
 
 
@@ -191,9 +240,33 @@ namespace COMP214_PetShopGUI
 
             finally
             {
-                check1.Text = VetID + PetID + VetApptTime + VetApptNote + VetApptPrice;
+               
             }
 
+        }
+
+      
+        public void sendConfirmEmail_Click(object sender, EventArgs e)
+        {
+            Thisemail = email.Text;
+
+            subject = "Appointment Confirmation for " + fname.Text;
+
+            content = "Hello " + fname.Text + " ," + "the following appointment has been booked for you:" + "<br>" + details.Text;
+
+
+            AppointmentEmail newemail = new AppointmentEmail(subject,content,Thisemail);
+            try
+            {
+                ConnectionClass.SendConfirmEmail(newemail);
+            }
+
+            catch
+            {
+                Response.Write("<script type='text/javascript'>");
+                Response.Write("alert('Failed ');");
+                Response.Write("</script>");
+            } 
         }
     }
 }

@@ -47,10 +47,13 @@
 <asp:Button ID="seeDetail" runat="server" Text="See Detail" CssClass="Btn" BorderStyle="None" OnClick="seeDetail_Click" /><br />
 
 <div class="apptdetail">
-<asp:Label ID="check" runat="server" Text="New Appointment Detail display here" ></asp:Label>
+<asp:Label ID="fname" runat="server" Text="first name" Visible="False"></asp:Label><br />
+<asp:Label ID="details" runat="server" Text="New Appointment Detail display here" ></asp:Label><br />
+<asp:Label ID="email" runat="server" Text="email"  Visible="False" ></asp:Label>
 </div>
 <asp:Button ID="saveAppointment" runat="server" Text="Save Appointment"  BorderStyle="None"   CssClass="Btn" BackColor="#009900" OnClick="saveAppointment_Click"/>&nbsp;
-<asp:Button ID="sendConfirmEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None" BackColor="#003399"  /> <br />
-<asp:Label ID="check1" runat="server" Text="New Appointment Detail display here" ></asp:Label>
+<asp:Button ID="sendConfirmEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None" BackColor="#003399" OnClick="sendConfirmEmail_Click"  /> <br />
+<asp:Label ID="check1" runat="server" Text="email"  BackColor="#FFCCCC"></asp:Label><br />
+
 
 </asp:Content>

@@ -31,13 +31,22 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button StartIssue;
         
         /// <summary>
-        /// status1 control.
+        /// displayPetID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label status1;
+        protected global::System.Web.UI.WebControls.Label displayPetID;
+        
+        /// <summary>
+        /// displayPrescID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label displayPrescID;
         
         /// <summary>
         /// MedList control.
@@ -76,94 +85,22 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button DelMed;
         
         /// <summary>
-        /// med1 control.
+        /// meditemboxheader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meditemboxheader;
         
         /// <summary>
-        /// med1qty control.
+        /// medqtyheader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med1qty;
-        
-        /// <summary>
-        /// med2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med2;
-        
-        /// <summary>
-        /// med2qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med2qty;
-        
-        /// <summary>
-        /// med3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med3;
-        
-        /// <summary>
-        /// med3qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med3qty;
-        
-        /// <summary>
-        /// med4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med4;
-        
-        /// <summary>
-        /// med4qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med4qty;
-        
-        /// <summary>
-        /// med5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med5;
-        
-        /// <summary>
-        /// med5qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label med5qty;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl medqtyheader;
         
         /// <summary>
         /// meditemslist control.
@@ -182,5 +119,14 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal meditemsqty;
+        
+        /// <summary>
+        /// linkedlisttest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label linkedlisttest;
     }
 }

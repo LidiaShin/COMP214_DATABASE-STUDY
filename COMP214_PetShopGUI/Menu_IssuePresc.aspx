@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_IssuePresc.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_IssuePresc" %>
 
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
 
 	* *Start Issue New Prescription * * <hr />
@@ -8,14 +10,19 @@
 1. Please select Pet's ID &nbsp; &nbsp;
 <asp:DropDownList ID="PetIDList" runat="server"></asp:DropDownList>&nbsp;
 <asp:Button ID="StartIssue" runat="server" Text="Start Issue" BorderStyle="None" CssClass="Btn" OnClick="StartIssue_Click" /><br />
-<asp:Label ID="status1" runat="server" Text="status 1" BackColor="#FFFFE8"></asp:Label>
+
+<div id="printpresc1" style="padding:10px;">
+PET ID: <asp:Label ID="displayPetID" runat="server" Text="PET ID" BackColor="#FFFFE8"></asp:Label><br />
+PRESCRIPTION NO: <asp:Label ID="displayPrescID" runat="server" Text="PRESCRIPTION NO" BackColor="#FFFFE8"></asp:Label><br />
+</div>
 <br /><br />
 
 	
 
 
 2. Please choose Medication  & Quantity <br />
-<table style="width:70%">
+<table style="width:70%; padding:10px;">
+
 
 <tr>
 <td> Name: </td>
@@ -30,28 +37,20 @@
 </td>
 </tr> 
 </table> 
-<!--
-<asp:Label ID="med1" runat="server" Text="med1" BackColor="#FFFFE8"></asp:Label>
-<asp:Label ID="med1qty" runat="server" Text="qty1" BackColor="#FFFFE8"></asp:Label>
-<br />
 
-<asp:Label ID="med2" runat="server" Text="med2" BackColor="#FFFFE8"></asp:Label>
-<asp:Label ID="med2qty" runat="server" Text="qty2" BackColor="#FFFFE8"></asp:Label>
-<br />
+<div id="printpresc2">
 
-<asp:Label ID="med3" runat="server" Text="med3" BackColor="#FFFFE8"></asp:Label>
-<asp:Label ID="med3qty" runat="server" Text="qty3" BackColor="#FFFFE8"></asp:Label>
-<br />
+<div class="meditem box" style="text-align:center;" runat="server" id="meditemboxheader" visible="False">
+NAME
+</div>
 
-<asp:Label ID="med4" runat="server" Text="med4" BackColor="#FFFFE8"></asp:Label>
-<asp:Label ID="med4qty" runat="server" Text="qty4" BackColor="#FFFFE8"></asp:Label>
-<br />
+<div class="medqty box" runat="server" id="medqtyheader" visible="False">
+QUANTITY
+</div>
 
-<asp:Label ID="med5" runat="server" Text="med5" BackColor="#FFFFE8"></asp:Label>
-<asp:Label ID="med5qty" runat="server" Text="qty5" BackColor="#FFFFE8"></asp:Label>
-<br />
--->
-<div>
+</div>
+
+<div id="printpresc3">
 
 <div class="meditem box">
 <asp:Literal ID="meditemslist" runat="server"></asp:Literal>
@@ -59,12 +58,20 @@
 
 <div class="medqty box">
 <asp:Literal ID="meditemsqty" runat="server"></asp:Literal>
-</div>
 
 </div>
 
+</div>
+
+<hr />
+
+
+<asp:Label ID="linkedlisttest" runat="server" Text="linkedlist"  BackColor="#FFCCCC"></asp:Label> <br />
+
+
+<hr />
 <div>
-3. Confirm <br />
+3. Confirm &nbsp; &nbsp;<input name="printPresc" type="button" class="Btn" onclick="PrintPresc('printpresc1','printpresc2','printpresc3');" value=" Print "><br />
 
 4. Issue <br />
 </div>

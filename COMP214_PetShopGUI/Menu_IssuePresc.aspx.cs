@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,10 +23,24 @@ namespace COMP214_PetShopGUI
         string PrescID { get; set; }
         string PetID { get; set; }
         string PrescOrderDate { get; set; }
-      
-       
+
+
+        // linkedlist for medication items of prescriptoin
+       LinkedList<string> medilist
+        {
+            get { return (LinkedList<string>)Session["mediitemlist"]; }
+            set { Session["mediitemlist"] = value; }
+        }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // 리스트 테스트 2
+            if (medilist == null) medilist = new LinkedList<string>();
+
+
+
             if (!IsPostBack)
             {
               // Display dropdownlist with Pet ID 
@@ -36,7 +52,7 @@ namespace COMP214_PetShopGUI
                 {
                     ConnectionClass.PetIDList(Ids);
                     PetIDList.DataSource = Ids.PetIDs;
-                    PetIDList.DataTextField = Ids.PetIDs.Columns["ID"].ToString();
+                    PetIDList.DataTextField = Ids.PetIDs.Columns["NAME"].ToString();
                     PetIDList.DataValueField = Ids.PetIDs.Columns["ID"].ToString();
                     PetIDList.DataBind();
 
@@ -58,13 +74,13 @@ namespace COMP214_PetShopGUI
 
         protected void MedList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // status2.Text = MedList.SelectedValue.ToString();
+            
         }
 
 
         protected void StartIssue_Click(object sender, EventArgs e)
         {
-            PetID = PetIDList.SelectedItem.ToString();
+            PetID = PetIDList.SelectedValue.ToString();
 
             PrescList newPresc = new PrescList(PrescID, PetID, PrescOrderDate);
 
@@ -72,7 +88,9 @@ namespace COMP214_PetShopGUI
             {
                 ConnectionClass.PrescriptionList(newPresc);
                 ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Success! ');</script>");
-                status1.Text = PetID + " and " + newPresc.PrescID;
+                displayPetID.Text = PetID;
+                displayPrescID.Text = newPresc.PrescID;
+                
             }
             catch
             {
@@ -90,8 +108,8 @@ namespace COMP214_PetShopGUI
         string MedQty;
 
         string MedItems;
-        string MedItemQtys;
-        
+        string MedItemQtys; 
+
         protected void AddMed_Click(object sender, EventArgs e)
         {
           
@@ -99,7 +117,10 @@ namespace COMP214_PetShopGUI
             {
                 meditemslist.Text = "";
                 meditemsqty.Text = "";
+               
                 fillPresc();
+                
+
             }
             else
             {
@@ -109,14 +130,28 @@ namespace COMP214_PetShopGUI
         
         public void fillPresc()
         {
+
+            
             MedName = MedList.SelectedItem.ToString();
             MedQty = InputQty.Text;
 
-            MedItems = "  " + MedName + "<br>";
+            MedItems = "  " + MedName + "<br>";        
             MedItemQtys = "  " + MedQty + "<br>";
+            //"  " : space for indexing (for remove)
 
             meditemslist.Text += MedItems;
             meditemsqty.Text += MedItemQtys;
+
+
+            //TEST linkedLIST
+            //add linkedlist on the label
+            medilist.AddLast(MedName);
+            string liststring = string.Join("????", medilist.ToArray());
+            linkedlisttest.Text = liststring;
+
+
+            meditemboxheader.Visible = true;
+            medqtyheader.Visible = true;
         } 
 
         
@@ -127,6 +162,11 @@ namespace COMP214_PetShopGUI
                 meditemslist.Text = meditemslist.Text.Remove(meditemslist.Text.LastIndexOf("  "));
                 meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
 
+                //remove linkedlist on the label
+                medilist.RemoveLast();
+                string liststring1 = string.Join("<br>", medilist.ToArray());
+                linkedlisttest.Text = liststring1;
+
             }
 
             catch
@@ -135,6 +175,8 @@ namespace COMP214_PetShopGUI
                 meditemsqty.Text = " and quantity";
             } 
            
-        } 
+        }
+
+        
     }
 }
