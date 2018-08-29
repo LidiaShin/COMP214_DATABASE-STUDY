@@ -336,5 +336,28 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
             }
         }
 
+        public static void SaveNewPresc(PrescDetail newPresc)
+        {
+            string lQuery = string.Format(@"INSERT INTO PRESCRIPTION_DETAIL (PRE_ID,MED_ID,QTY) VALUES({0},{1},{2})", newPresc.MedID,newPresc.MedID,newPresc.MedQty);
+            
+
+            cmdString = new OracleCommand(lQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                cmdString.ExecuteNonQuery();
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+
+
+
+
     }
 }

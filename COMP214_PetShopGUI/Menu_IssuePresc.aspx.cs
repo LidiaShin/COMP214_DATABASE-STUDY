@@ -143,10 +143,10 @@ namespace COMP214_PetShopGUI
             meditemsqty.Text += MedItemQtys;
 
 
-            //TEST linkedLIST
+            //linkedLIST
             //add linkedlist on the label
             medilist.AddLast(MedName);
-            string liststring = string.Join("????", medilist.ToArray());
+            string liststring = string.Join("<br>", medilist.ToArray());
             linkedlisttest.Text = liststring;
 
 

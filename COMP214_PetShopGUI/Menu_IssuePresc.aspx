@@ -15,10 +15,7 @@
 PET ID: <asp:Label ID="displayPetID" runat="server" Text="PET ID" BackColor="#FFFFE8"></asp:Label><br />
 PRESCRIPTION NO: <asp:Label ID="displayPrescID" runat="server" Text="PRESCRIPTION NO" BackColor="#FFFFE8"></asp:Label><br />
 </div>
-<br /><br />
-
-	
-
+<br />
 
 2. Please choose Medication  & Quantity <br />
 <table style="width:70%; padding:10px;">
@@ -66,12 +63,16 @@ QUANTITY
 <hr />
 
 
-<asp:Label ID="linkedlisttest" runat="server" Text="linkedlist"  BackColor="#FFCCCC"></asp:Label> <br />
+<asp:Label ID="linkedlisttest" runat="server" Text="linkedlist"  BackColor="#FFCCCC"></asp:Label> <br /><br />
 
-
+<asp:Button ID="savePresc" runat="server" Text="savetest"  CssClass="Btn" />
 <hr />
 <div>
-3. Confirm &nbsp; &nbsp;<input name="printPresc" type="button" class="Btn" onclick="PrintPresc('printpresc1','printpresc2','printpresc3');" value=" Print "><br />
+3. Confirm <br /> <br />
+
+
+4. Print <br />
+<input name="printPresc" type="button" class="Btn" onclick="PrintPresc('printpresc1','printpresc2','printpresc3');" value=" Print "><br />
 
 4. Issue <br />
 </div>
