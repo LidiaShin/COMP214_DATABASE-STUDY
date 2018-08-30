@@ -23,3 +23,19 @@
 
 	return false;
 }
+
+//var x = document.getElementById("printpresc3").value;
+
+function confirmSave() {
+	var msg = 'Do you want issue the prescription?';
+	var y = "";
+	y = document.getElementById('hidden').innerText;
+	var result = window.confirm(msg + '\n' + y);
+
+	
+	if (result == true)
+		return true;
+	else
+		return false;
+}
+

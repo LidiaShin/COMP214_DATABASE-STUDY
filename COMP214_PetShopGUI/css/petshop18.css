@@ -129,19 +129,26 @@ li {
 }
 
 .meditem {
-	width: 70%;
+	width: 55%;
 	/*background-color: azure; */
 	/*border: 1px solid #777f7b;*/
 }
 
 .medqty {
-	width: 10%;
+	width: 7%;
 	/*background-color: antiquewhite;*/
-	color: brown;
+	color: red;
 	/* border: 1px solid #777f7b; */
 	text-align:center;
 }
 
+.medid {
+	width: 10%;
+	/*background-color: antiquewhite;*/
+	color: darkgreen;
+	/* border: 1px solid #777f7b; */
+	text-align: center;
+}
 
 
 .printPrescForm {

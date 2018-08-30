@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -25,25 +28,97 @@ namespace COMP214_PetShopGUI
         string PrescOrderDate { get; set; }
 
 
-        // linkedlist for medication items of prescriptoin
+        // linkedlist for medication items for prescriptoin
        LinkedList<string> medilist
         {
             get { return (LinkedList<string>)Session["mediitemlist"]; }
             set { Session["mediitemlist"] = value; }
         }
 
+        // linkedlist for quantity of medication items for prescriptoin
+        // each variable (=linked list) has a different session name
+        LinkedList<string> mediqtylist
+        {
+            get { return (LinkedList<string>)Session["mediitemqtylist"]; }
+            set { Session["mediitemqtylist"] = value; }
+        }
+
+
+        LinkedList<string> mediidlist
+        {
+            get { return (LinkedList<string>)Session["mediitemidlist"]; }
+            set { Session["mediitemidlist"] = value; }
+        }
+
+        // arrays for inserting values into DB
+        string[] MediArray
+        {
+            get
+            {
+                /*if (Session["medarr"] == null)
+                {
+                    Session["medarr"] = new string[] { };
+                } */
+                return (string[])Session["medarr"];
+            }
+            set
+            {
+                Session["medarr"] = value;
+            }
+        }
+
+        string[] MediQtyArray
+        {
+            get
+            {
+                /*if (Session["medqtyarr"] == null)
+                {
+                    Session["medqtyarr"] = new string[] { };
+                } */
+                return (string[])Session["medqtyarr"];
+            }
+            set
+            {
+                Session["medqtyarr"] = value;
+            }
+        }
+
+        string[] MediIDArray
+        {
+            get
+            {
+                /*if (Session["medidarr"] == null)
+                {
+                    Session["medidarr"] = new string[] { };
+                } */
+                return (string[])Session["medidarr"];
+            }
+            set
+            {
+                Session["medidarr"] = value;
+            }
+        }
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // 리스트 테스트 2
-            if (medilist == null) medilist = new LinkedList<string>();
-
-
+   
 
             if (!IsPostBack)
             {
-              // Display dropdownlist with Pet ID 
+                // store linkedlist items during the session
+                //if (Session["mediitemlist"] == null && Session["mediitemqtylist"] == null && Session["mediitemidlist"] == null && Session["medarr"] == null && Session["medqtyarr"] == null && Session["medidarr"] == null)
+                //{
+                    Session["mediitemlist"] = new LinkedList<string>();
+                    Session["mediitemqtylist"] = new LinkedList<string>();
+                    Session["mediitemidlist"] = new LinkedList<string>();
+                    Session["medarr"] = new string[] { };
+                    Session["medqtyarr"] = new string[] { };
+                    Session["medidarr"] = new string[] { };
+                //}
+
+
+                // Display dropdownlist with Pet ID 
               PetID Ids = new PetID(ids);
 
               MedList Meds = new MedList(mitems);
@@ -90,6 +165,7 @@ namespace COMP214_PetShopGUI
                 ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Success! ');</script>");
                 displayPetID.Text = PetID;
                 displayPrescID.Text = newPresc.PrescID;
+                // This goes to prescriptionID and array
                 
             }
             catch
@@ -105,22 +181,22 @@ namespace COMP214_PetShopGUI
         }
 
         string MedName;
+        string MedNum;
         string MedQty;
 
-        string MedItems;
-        string MedItemQtys; 
+       
 
         protected void AddMed_Click(object sender, EventArgs e)
         {
           
-            if (meditemslist.Text == "Please add new med item" && meditemsqty.Text == " and quantity")
+            if (lblmedilist.Text == "Please add new med item and quantity")
             {
-                meditemslist.Text = "";
-                meditemsqty.Text = "";
-               
-                fillPresc();
-                
+                lblmedilist.Text = "";
+                lblmediqtylist.Text = "";
+                lblmediidlist.Text = "";
 
+
+                fillPresc();
             }
             else
             {
@@ -131,27 +207,63 @@ namespace COMP214_PetShopGUI
         public void fillPresc()
         {
 
-            
             MedName = MedList.SelectedItem.ToString();
+            MedNum = MedList.SelectedValue.ToString();
             MedQty = InputQty.Text;
-
-            MedItems = "  " + MedName + "<br>";        
-            MedItemQtys = "  " + MedQty + "<br>";
-            //"  " : space for indexing (for remove)
-
-            meditemslist.Text += MedItems;
-            meditemsqty.Text += MedItemQtys;
+            //add linkedlist & display on the label (Med Items)
 
 
-            //linkedLIST
-            //add linkedlist on the label
+            //add med item to linkedlist (1 by 1)  & display on the label (Med Item Name)
             medilist.AddLast(MedName);
-            string liststring = string.Join("<br>", medilist.ToArray());
-            linkedlisttest.Text = liststring;
+    
+            MediArray = medilist.ToArray();
+            // convert linkedlist to array
+            // or, string medlinkedlist = string.Join("<br>", medilist.ToArray());
+
+            string medlinkedlist = string.Join("<br>", MediArray);
+            // convert array to string to display on the label
+            // 첫번째 array[0] 에선 발생하지 않음
+            // 두번째 element 부터 join 시작
+
+            lblmedilist.Text = medlinkedlist;
+            // Display on the label (rendering)
 
 
-            meditemboxheader.Visible = true;
+            //Add linkedlist & display on the label (Med Item ID)
+            mediidlist.AddLast(MedNum);       
+            MediIDArray = mediidlist.ToArray();
+            string medidlinkedlist = string.Join("<br>", MediIDArray);
+            lblmediidlist.Text = medidlinkedlist;
+        
+            //Add linkedlist & display on the label (Med Item Quantity)
+            mediqtylist.AddLast(MedQty);
+            MediQtyArray = mediqtylist.ToArray();
+            string medqtylinkedlist = string.Join("<br>", MediQtyArray);      
+            lblmediqtylist.Text = medqtylinkedlist;
+ 
+
+            // Display Table's header 
             medqtyheader.Visible = true;
+            mednameheader.Visible = true;
+            medidheader.Visible = true;
+
+            // hidden table value (for window.confirm();)
+            //string mlist = string.Join("", MediArray) + string.Join("", MediQtyArray);
+            //string[] mlist = 
+
+            //mlists.Text = string.Join("", mlist);
+
+            string MedItems;
+            //string MedItemQtys;
+
+            MedItems = "  " + MedName + "(" + MedQty + ")"  + "<br>";
+            //MedItemQtys = "  " + MedQty + "<br>";
+            //"  " : space for indexing (for remove)
+            mlists.Text += MedItems;
+
+
+
+
         } 
 
         
@@ -159,24 +271,135 @@ namespace COMP214_PetShopGUI
         {
             try
             {
-                meditemslist.Text = meditemslist.Text.Remove(meditemslist.Text.LastIndexOf("  "));
-                meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
-
-                //remove linkedlist on the label
+               
+                //remove linkedlist on the label (1 by 1, from the very last one)
                 medilist.RemoveLast();
-                string liststring1 = string.Join("<br>", medilist.ToArray());
-                linkedlisttest.Text = liststring1;
+                MediArray = medilist.ToArray();
+                string medlinkedlist = string.Join("<br>", MediArray);
+                lblmedilist.Text = medlinkedlist;
 
+
+
+                mediidlist.RemoveLast();
+                MediIDArray = mediidlist.ToArray();
+                string medidlinkedlist = string.Join("<br>", MediIDArray);
+                lblmediidlist.Text = medidlinkedlist;
+
+
+
+
+                mediqtylist.RemoveLast();
+                MediQtyArray = mediqtylist.ToArray();
+                string medqtylinkedlist = string.Join("<br>", MediQtyArray);
+                lblmediqtylist.Text = medqtylinkedlist;
+
+
+                // hidden table value (for window.confirm();)
+
+                string MedItems;
+                MedItems = "  " + MedName + "(" + MedQty + ")" + "<br>";
+                //string mlist = string.Join("<br>", MediArray) + string.Join("<br>", MediQtyArray);
+                mlists.Text += MedItems;
             }
 
             catch
             {
-                meditemslist.Text = "Please add new med item";
-                meditemsqty.Text = " and quantity";
+                lblmedilist.Text = "Please add new med item and quantity";
             } 
            
         }
 
-        
+       
+        protected void save(object sender, EventArgs e)
+        {
+
+            
+                // Populating array of Prescription ID, same length of Medication IDs and Medication Quantities
+                string TPrescID = displayPrescID.Text;
+                string[] PrescID = new string[MediArray.Length];
+                for (int i = 0; i < MediArray.Length; i++)
+                {
+                    PrescID[i] = TPrescID;
+                }
+
+                PrescDetail newPrescDetails = new PrescDetail(PrescID, MediIDArray, MediQtyArray);
+                try
+                {
+                    ConnectionClass.SaveNewPresc(newPrescDetails);
+
+                    ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Prescription saved successfully! ');</script>");
+                }
+                catch
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Cancelled ');</script>");
+                }
+
+                //finally
+                //{
+               // }
+        }
     }
 }
+
+/* Backup & Testing code 1)
+ * 
+        string MedItems;
+        string MedItemQtys; 
+
+            MedItems = "  " + MedName + "<br>";        
+            MedItemQtys = "  " + MedQty + "<br>";
+            //"  " : space for indexing (for remove)
+
+            meditemslist.Text += MedItems;
+            meditemsqty.Text += MedItemQtys;
+            */
+
+/* meditemslist.Text = meditemslist.Text.Remove(meditemslist.Text.LastIndexOf("  "));
+  meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
+  */
+
+/* Backup & Testing code 2)
+ * 
+string cs = ConfigurationManager.ConnectionStrings["petshop2018"].ConnectionString;
+using (OracleConnection cn = new OracleConnection(cs))
+            {
+                cn.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "TESTSP_Presc";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                cmd.ArrayBindCount = PrescID.Length;
+
+                cmd.Parameters.Add("@para_preid", OracleDbType.Varchar2).Value = newPrescDetails.PrescID;
+                cmd.Parameters.Add("@para_medid", OracleDbType.Varchar2).Value = newPrescDetails.MedID;
+                cmd.Parameters.Add("@para_medqty", OracleDbType.Varchar2).Value = newPrescDetails.MedQty;
+
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            } 
+PrescDetail newPrescDetails = new PrescDetail(displayPrescID.Text, "3002", "4");
+try
+{
+    //ConnectionClass.SaveNewPresc(newPrescDetails);
+
+    ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Success! ');</script>");
+}
+
+catch
+{
+    ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Failed! ');</script>");
+}
+finally
+{
+    test.Text = string.Join("", MediIDArray) + "<br>" + string.Join(" + ", MediQtyArray) + displayPrescID.Text;
+} */
+
+
+
+/* Backup & Testing Code 3) Check Array's element with displaying on the label
+ * 
+ * string testarray =  string.Join(" ",MediArray);
+   string testqtyarray = string.Join(" ", MediQtyArray);
+ */

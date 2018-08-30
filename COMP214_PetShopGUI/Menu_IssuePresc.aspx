@@ -1,13 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_IssuePresc.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_IssuePresc" %>
-
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
+<h3>	* *Start Issue New Prescription * * </h3>
 
-	* *Start Issue New Prescription * * <hr />
+<hr />
 
-1. Please select Pet's ID &nbsp; &nbsp;
+<strong>1. Please select Pet's ID </strong>&nbsp; &nbsp;
 <asp:DropDownList ID="PetIDList" runat="server"></asp:DropDownList>&nbsp;
 <asp:Button ID="StartIssue" runat="server" Text="Start Issue" BorderStyle="None" CssClass="Btn" OnClick="StartIssue_Click" /><br />
 
@@ -17,7 +14,9 @@ PRESCRIPTION NO: <asp:Label ID="displayPrescID" runat="server" Text="PRESCRIPTIO
 </div>
 <br />
 
-2. Please choose Medication  & Quantity <br />
+<strong>2. Please choose Medication  & Quantity </strong><br />
+
+
 <table style="width:70%; padding:10px;">
 
 
@@ -35,44 +34,65 @@ PRESCRIPTION NO: <asp:Label ID="displayPrescID" runat="server" Text="PRESCRIPTIO
 </tr> 
 </table> 
 
-<div id="printpresc2">
+<div id="printpresc2" style="width:80%; margin:auto;">
 
-<div class="meditem box" style="text-align:center;" runat="server" id="meditemboxheader" visible="False">
+<hr />
+
+<div class="meditem box" style="text-align:center; font-weight: 700;" runat="server" id="mednameheader" visible="False"  >
 NAME
 </div>
 
-<div class="medqty box" runat="server" id="medqtyheader" visible="False">
+<div class="medid box" style="font-weight: 700;" runat="server" id="medidheader" visible="False">
+MED ID
+</div>
+
+<div class="medqty box" style="font-weight: 700;" runat="server" id="medqtyheader" visible="False">
 QUANTITY
 </div>
 
+<hr />
+
+
 </div>
 
-<div id="printpresc3">
+<div id="printpresc3" style="width:80%; margin:auto;">
 
-<div class="meditem box">
-<asp:Literal ID="meditemslist" runat="server"></asp:Literal>
+<div class="meditem box" id="mediitems">
+<asp:Label ID="lblmedilist" runat="server" Text="linkedlist - item"></asp:Label> 
+</div>
+
+<div class="medid box">
+<asp:Label ID="lblmediidlist" runat="server" Text="linkedlist - id"></asp:Label>
 </div>
 
 <div class="medqty box">
-<asp:Literal ID="meditemsqty" runat="server"></asp:Literal>
-
+<asp:Label ID="lblmediqtylist" runat="server" Text="linkedlist - qty"></asp:Label>
 </div>
 
 </div>
 
+
+<div id="hidden"  >
+	
+		<asp:Label ID="mlists" runat="server" Text=""></asp:Label>
+</div>
+
+
+
+<hr />
+<asp:Button ID="savePresc" runat="server" Text="SAVE"  CssClass="Btn" OnClick="save" OnClientClick="return confirmSave();" /> &nbsp; 
+<input name="printPresc" type="button" class="Btn" onclick="PrintPresc('printpresc1','printpresc2','printpresc3');" value=" Print "><br />
+<asp:Label ID="test" runat="server" Text=""></asp:Label>
+
 <hr />
 
 
-<asp:Label ID="linkedlisttest" runat="server" Text="linkedlist"  BackColor="#FFCCCC"></asp:Label> <br /><br />
-
-<asp:Button ID="savePresc" runat="server" Text="savetest"  CssClass="Btn" />
-<hr />
 <div>
 3. Confirm <br /> <br />
 
 
 4. Print <br />
-<input name="printPresc" type="button" class="Btn" onclick="PrintPresc('printpresc1','printpresc2','printpresc3');" value=" Print "><br />
+
 
 4. Issue <br />
 </div>

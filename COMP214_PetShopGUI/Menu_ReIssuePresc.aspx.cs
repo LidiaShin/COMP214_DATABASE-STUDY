@@ -17,13 +17,14 @@ namespace COMP214_PetShopGUI
          
         }
 
-        int prescriptionID { get; set; }
+        string prescriptionID { get; set; }
 
         string cs = ConfigurationManager.ConnectionStrings["petshop2018"].ConnectionString;
 
         protected void checkPreID_Click(object sender, EventArgs e)
         {
-            prescriptionID = Convert.ToInt32(preID.Text);
+            //prescriptionID = Convert.ToInt32(preID.Text);
+            prescriptionID = preID.Text;
 
             using (OracleConnection cn = new OracleConnection(cs))
             {
@@ -31,15 +32,11 @@ namespace COMP214_PetShopGUI
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = "reissue_prescription";
-
-
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@P_ID", OracleDbType.Int32).Value = prescriptionID;
-               
 
-
-
+                cmd.Parameters.Add("@P_ID", OracleDbType.Int32).Value = Convert.ToInt32(prescriptionID);
+                
                 cmd.ExecuteNonQuery();
 
             

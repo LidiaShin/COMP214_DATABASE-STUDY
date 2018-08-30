@@ -85,13 +85,22 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button DelMed;
         
         /// <summary>
-        /// meditemboxheader control.
+        /// mednameheader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meditemboxheader;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mednameheader;
+        
+        /// <summary>
+        /// medidheader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl medidheader;
         
         /// <summary>
         /// medqtyheader control.
@@ -103,31 +112,40 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl medqtyheader;
         
         /// <summary>
-        /// meditemslist control.
+        /// lblmedilist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal meditemslist;
+        protected global::System.Web.UI.WebControls.Label lblmedilist;
         
         /// <summary>
-        /// meditemsqty control.
+        /// lblmediidlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal meditemsqty;
+        protected global::System.Web.UI.WebControls.Label lblmediidlist;
         
         /// <summary>
-        /// linkedlisttest control.
+        /// lblmediqtylist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label linkedlisttest;
+        protected global::System.Web.UI.WebControls.Label lblmediqtylist;
+        
+        /// <summary>
+        /// mlists control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mlists;
         
         /// <summary>
         /// savePresc control.
@@ -137,5 +155,14 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button savePresc;
+        
+        /// <summary>
+        /// test control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label test;
     }
 }

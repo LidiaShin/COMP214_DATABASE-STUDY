@@ -338,14 +338,33 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
 
         public static void SaveNewPresc(PrescDetail newPresc)
         {
-            string lQuery = string.Format(@"INSERT INTO PRESCRIPTION_DETAIL (PRE_ID,MED_ID,QTY) VALUES({0},{1},{2})", newPresc.MedID,newPresc.MedID,newPresc.MedQty);
+            //string lQuery = string.Format(@"INSERT INTO PRESCRIPTION_DETAIL (PRE_ID,MED_ID,QTY) VALUES({0},{1},{2})", newPresc.MedID,newPresc.MedID,newPresc.MedQty);
             
 
-            cmdString = new OracleCommand(lQuery, cntString);
+            cmdString = new OracleCommand();
 
             try
             {
                 cntString.Open();
+
+                cmdString.Connection = cntString;
+                cmdString.CommandText = "TESTSP_PRESC";
+                cmdString.CommandType = CommandType.StoredProcedure;
+
+                cmdString.ArrayBindCount = newPresc.MedID.Length;
+
+
+                cmdString.Parameters.Add("@PARA_PREID", OracleDbType.Varchar2).Value = newPresc.PrescID;
+
+                //cmdString.Parameters.Add("@PARA_MEDID", OracleDbType.Varchar2);
+                //cmdString.Parameters[0].Value = newPresc.MedID;
+                cmdString.Parameters.Add("@PARA_MEDID", OracleDbType.Varchar2).Value = newPresc.MedID;
+
+
+                //cmdString.Parameters.Add("@PARA_MEDQTY", OracleDbType.Varchar2);
+                //cmdString.Parameters[1].Value = newPresc.MedQty;
+                cmdString.Parameters.Add("@PARA_MEDQTY", OracleDbType.Varchar2).Value = newPresc.MedQty;
+
                 cmdString.ExecuteNonQuery();
             }
 
