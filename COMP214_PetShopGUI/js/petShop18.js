@@ -39,3 +39,17 @@ function confirmSave() {
 		return false;
 }
 
+
+function confirmCancel() {
+	var msg = 'Do you want to cancel this appointment?';
+	//var y = "";
+	//y = document.getElementById('hidden').innerText;
+	var result = window.confirm(msg);
+
+
+	if (result == true)
+		return true;
+	else
+		return false;
+}
+

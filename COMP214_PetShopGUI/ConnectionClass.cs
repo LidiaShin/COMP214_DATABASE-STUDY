@@ -122,7 +122,7 @@ namespace COMP214_PetShopGUI
 
         public static void PetIDList(PetID ids)
         {
-            string eQuery = string.Format(@"SELECT ID,NAME from PET");
+            string eQuery = string.Format(@"SELECT ID,(NAME || ', ID: ' || ID) AS NNAME from PET");
             cmdString = new OracleCommand(eQuery, cntString);
 
             try
@@ -172,13 +172,14 @@ namespace COMP214_PetShopGUI
 
         public static void PrescriptionList(PrescList preitem)
         {
-            string gQuery = string.Format(@"INSERT INTO PRESCRIPTION_LIST (PRE_ID,PET_ID,ORDER_DATE)
-VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
+            string g1Query = string.Format(@"INSERT INTO PRESCRIPTION_LIST (PRE_ID,PET_ID,ORDER_DATE)
+VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));     
+
             // Convert.ToInt64 주의 
 
             string hQuery = string.Format(@"select PREID_SEQ.CURRVAL FROM DUAL");
 
-            cmdString = new OracleCommand(gQuery, cntString);
+            cmdString = new OracleCommand(g1Query, cntString);
             cmeString = new OracleCommand(hQuery, cntString);
             try
             {
@@ -204,7 +205,7 @@ VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
 
         public static void VetIDList(VetID ids)
         {
-            string hQuery = string.Format(@"SELECT ID from VET");
+            string hQuery = string.Format(@"SELECT ID,(FIRST_NAME || ' ' || LAST_NAME || ', ID: ' || ID) AS NAME from VET");
             cmdString = new OracleCommand(hQuery, cntString);
 
             try
@@ -264,7 +265,7 @@ VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
         public static void ConfirmNewAppointment(VetAppointment newappt)
         {
             string jQuery = string.Format(@"INSERT INTO VET_APPOINTMENT (ID,VET_ID,PET_ID,DATE_TIME,NOTES,PRICE,DISCOUNT)
-VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}','{4}',SEARCHDISCOUNT({1}))", newappt.VetID, newappt.PetID, newappt.VetApptTime, newappt.VetApptNote, newappt.VetApptPrice);
+VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH24:MI'),'{3}','{4}',SEARCHDISCOUNT({1}))", newappt.VetID, newappt.PetID, newappt.VetApptTime, newappt.VetApptNote, newappt.VetApptPrice);
             // Convert.ToInt64 주의  
             // SEARCHDISCOUNT 는 펑션
 
@@ -294,7 +295,7 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
                 DataSet ds = new DataSet();
                 da.Fill(dt);
                 ds.Tables.Add(dt);
-                //newInfo.emailAddress = dt.Rows[0]["LAST_NAME"].ToString();
+                
                 cus.emailAddress = dt.Rows[0]["EMAIL"].ToString();
                 cus.firstName = dt.Rows[0]["FIRST_NAME"].ToString();
                 cus.lastName = dt.Rows[0]["LAST_NAME"].ToString();
@@ -339,8 +340,6 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
         public static void SaveNewPresc(PrescDetail newPresc)
         {
             //string lQuery = string.Format(@"INSERT INTO PRESCRIPTION_DETAIL (PRE_ID,MED_ID,QTY) VALUES({0},{1},{2})", newPresc.MedID,newPresc.MedID,newPresc.MedQty);
-            
-
             cmdString = new OracleCommand();
 
             try
@@ -374,9 +373,90 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH:MI'),'{3}',
             }
         }
 
+        public static void RegisterNewMed(Medication newmed)
+        {
+            string lQuery = string.Format(@"INSERT INTO MEDICATION (ID,MANUFACTURER_ID,MANUFACTURER_REF#,NAME,PRICE)
+VALUES(MEDID_SEQ.NEXTVAL,'{0}','{1}','{2}','{3}')",newmed.ManuID,newmed.ManuRF,newmed.MedName,newmed.MedPrice);
+            cmdString = new OracleCommand(lQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                cmdString.ExecuteNonQuery();
+            }
+
+            catch
+            {
+
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
 
 
 
+        public static void GetApptList(ApptList Appt)
+        {
+            string mQuery = string.Format(@"SELECT ID AS NO,PET_ID AS PET_ID,(select name from PET where id = VA.PET_ID) as PET,(SELECT FIRST_NAME || ' ' || LAST_NAME FROM CUSTOMER WHERE ID = (SELECT OWNER_ID FROM PET WHERE PET_ID = PET.ID)) AS CUSTOMER,TO_CHAR(DATE_TIME,'YYYY/MON/DD,HH:MI') as APPOINTMENT
+FROM VET_APPOINTMENT VA
+WHERE PET_ID IN(select PET.ID from PET join customer on PET.OWNER_ID= customer.ID where
+owner_id in (select id from customer where lower(first_name|| last_name) LIKE lower('%{0}%')))", Appt.CusName);
 
+            cmdString = new OracleCommand(mQuery, cntString);
+            try
+            {
+                cntString.Open();
+                OracleDataAdapter da = new OracleDataAdapter(cmdString);
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                da.Fill(dt);
+                ds.Tables.Add(dt);
+
+                Appt.ApptTable = ds.Tables[0];
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+
+        public static void CancelAppointment(ApptList Appt)
+        {
+            string nQuery=string.Format(@"DELETE FROM vet_appointment where id='{0}'", Appt.ApptID);
+            cmdString = new OracleCommand(nQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                cmdString.ExecuteNonQuery();
+
+            }
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+        public static void ChangeAppointment(ApptList Appt)
+        {
+            string oQuery = string.Format(@"UPDATE vet_appointment SET DATE_TIME=TO_DATE('{0}','YYYYMONDDHH24:MI') where id='{1}'", Appt.ApptDateTime, Appt.ApptID);
+            cmdString = new OracleCommand(oQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                cmdString.ExecuteNonQuery();
+
+            }
+            finally
+            {
+                cntString.Close();
+            }
+        }
     }
 }

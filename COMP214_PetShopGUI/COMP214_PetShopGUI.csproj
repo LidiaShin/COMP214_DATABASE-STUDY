@@ -75,10 +75,15 @@
     <Content Include="images\homeImage.jpg" />
     <Content Include="js\petShop18.js" />
     <Content Include="MedicationRegister.aspx" />
+    <Content Include="Menu_ChangeAppointment.aspx" />
+    <Content Include="Menu_Commision.aspx" />
     <Content Include="Menu_IssuePresc.aspx" />
+    <Content Include="Menu_MedExam.aspx" />
     <Content Include="Menu_NewAppointment.aspx" />
     <Content Include="Menu_Register.aspx" />
+    <Content Include="Menu_RegisterMedItem.aspx" />
     <Content Include="Menu_ReIssuePresc.aspx" />
+    <Content Include="Menu_ViewPresc.aspx" />
     <Content Include="TestConnectionPage.aspx" />
     <Content Include="home.aspx" />
     <Content Include="Web.config">
@@ -87,9 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppointmentEmail.cs" />
+    <Compile Include="ApptList.cs" />
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerPets.cs" />
+    <Compile Include="Medication.cs" />
     <Compile Include="MedicationRegister.aspx.cs">
       <DependentUpon>MedicationRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +105,20 @@
       <DependentUpon>MedicationRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="MedList.cs" />
+    <Compile Include="Menu_ChangeAppointment.aspx.cs">
+      <DependentUpon>Menu_ChangeAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_ChangeAppointment.aspx.designer.cs">
+      <DependentUpon>Menu_ChangeAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Commision.aspx.cs">
+      <DependentUpon>Menu_Commision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Commision.aspx.designer.cs">
+      <DependentUpon>Menu_Commision.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Menu_IssuePresc.aspx.cs">
       <DependentUpon>Menu_IssuePresc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,12 +126,33 @@
     <Compile Include="Menu_IssuePresc.aspx.designer.cs">
       <DependentUpon>Menu_IssuePresc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Menu_MedExam.aspx.cs">
+      <DependentUpon>Menu_MedExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MedExam.aspx.designer.cs">
+      <DependentUpon>Menu_MedExam.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Menu_NewAppointment.aspx.cs">
       <DependentUpon>Menu_NewAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Menu_NewAppointment.aspx.designer.cs">
       <DependentUpon>Menu_NewAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_RegisterMedItem.aspx.cs">
+      <DependentUpon>Menu_RegisterMedItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_RegisterMedItem.aspx.designer.cs">
+      <DependentUpon>Menu_RegisterMedItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_ViewPresc.aspx.cs">
+      <DependentUpon>Menu_ViewPresc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_ViewPresc.aspx.designer.cs">
+      <DependentUpon>Menu_ViewPresc.aspx</DependentUpon>
     </Compile>
     <Compile Include="OwnerID.cs" />
     <Compile Include="Pet.cs" />

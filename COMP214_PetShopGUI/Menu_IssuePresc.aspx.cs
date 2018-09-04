@@ -7,9 +7,11 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace COMP214_PetShopGUI
 {
@@ -42,7 +44,6 @@ namespace COMP214_PetShopGUI
             get { return (LinkedList<string>)Session["mediitemqtylist"]; }
             set { Session["mediitemqtylist"] = value; }
         }
-
 
         LinkedList<string> mediidlist
         {
@@ -118,16 +119,17 @@ namespace COMP214_PetShopGUI
                 //}
 
 
-                // Display dropdownlist with Pet ID 
+               // Display dropdownlist with Pet ID 
               PetID Ids = new PetID(ids);
 
+              
               MedList Meds = new MedList(mitems);
              
                 try
                 {
                     ConnectionClass.PetIDList(Ids);
                     PetIDList.DataSource = Ids.PetIDs;
-                    PetIDList.DataTextField = Ids.PetIDs.Columns["NAME"].ToString();
+                    PetIDList.DataTextField = Ids.PetIDs.Columns["NNAME"].ToString();
                     PetIDList.DataValueField = Ids.PetIDs.Columns["ID"].ToString();
                     PetIDList.DataBind();
 
@@ -142,7 +144,12 @@ namespace COMP214_PetShopGUI
                 {
 
                 }
+                // Display Quantity Number
 
+                for (int i = 1; i <= 100; i++)
+                {
+                    InputQtyNum.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
             }
 
         }
@@ -184,8 +191,6 @@ namespace COMP214_PetShopGUI
         string MedNum;
         string MedQty;
 
-       
-
         protected void AddMed_Click(object sender, EventArgs e)
         {
           
@@ -204,12 +209,13 @@ namespace COMP214_PetShopGUI
             } 
         } 
         
+       
         public void fillPresc()
         {
 
             MedName = MedList.SelectedItem.ToString();
             MedNum = MedList.SelectedValue.ToString();
-            MedQty = InputQty.Text;
+            MedQty = InputQtyNum.SelectedItem.ToString();
             //add linkedlist & display on the label (Med Items)
 
 
@@ -247,26 +253,14 @@ namespace COMP214_PetShopGUI
             mednameheader.Visible = true;
             medidheader.Visible = true;
 
-            // hidden table value (for window.confirm();)
-            //string mlist = string.Join("", MediArray) + string.Join("", MediQtyArray);
-            //string[] mlist = 
-
-            //mlists.Text = string.Join("", mlist);
-
+          
+            // for hidden div (for printing values)
             string MedItems;
-            //string MedItemQtys;
-
-            MedItems = "  " + MedName + "(" + MedQty + ")"  + "<br>";
-            //MedItemQtys = "  " + MedQty + "<br>";
-            //"  " : space for indexing (for remove)
+            MedItems = "<br>" + MedName + "(" + MedQty + ")";
             mlists.Text += MedItems;
 
-
-
-
         } 
-
-        
+       
         protected void DelMed_Click(object sender, EventArgs e)
         {
             try
@@ -293,13 +287,7 @@ namespace COMP214_PetShopGUI
                 string medqtylinkedlist = string.Join("<br>", MediQtyArray);
                 lblmediqtylist.Text = medqtylinkedlist;
 
-
-                // hidden table value (for window.confirm();)
-
-                string MedItems;
-                MedItems = "  " + MedName + "(" + MedQty + ")" + "<br>";
-                //string mlist = string.Join("<br>", MediArray) + string.Join("<br>", MediQtyArray);
-                mlists.Text += MedItems;
+                mlists.Text= mlists.Text.Remove(mlists.Text.LastIndexOf("<br>"));
             }
 
             catch
@@ -312,10 +300,9 @@ namespace COMP214_PetShopGUI
        
         protected void save(object sender, EventArgs e)
         {
-
             
-                // Populating array of Prescription ID, same length of Medication IDs and Medication Quantities
-                string TPrescID = displayPrescID.Text;
+            // Populating array of Prescription ID, same length of Medication IDs and Medication Quantities
+            string TPrescID = displayPrescID.Text;
                 string[] PrescID = new string[MediArray.Length];
                 for (int i = 0; i < MediArray.Length; i++)
                 {
@@ -333,11 +320,8 @@ namespace COMP214_PetShopGUI
                 {
                     ClientScript.RegisterStartupScript(GetType(), "message", "<script>alert(' Cancelled ');</script>");
                 }
-
-                //finally
-                //{
-               // }
         }
+
     }
 }
 
@@ -355,7 +339,7 @@ namespace COMP214_PetShopGUI
             */
 
 /* meditemslist.Text = meditemslist.Text.Remove(meditemslist.Text.LastIndexOf("  "));
-  meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
+   meditemsqty.Text = meditemsqty.Text.Remove(meditemsqty.Text.LastIndexOf("  "));
   */
 
 /* Backup & Testing code 2)

@@ -53,11 +53,29 @@ li {
 	}
 
 #Submenu {
-	background-color: #d8dde6;
+	background-color:ivory;
 	text-align: left;
 	padding-left:60px;
 	height:20px;
 }
+
+
+.SubBtn {
+	font-family: 'Julius Sans One', sans-serif;
+	font-weight: 400;
+	color:dimgray;
+	background-color:lightblue;
+	font-size: 14px;
+	border-style: none;
+}
+	.SubBtn:hover {
+		color: navy;
+		font-weight: 900;
+	}
+
+
+
+
 
 .Btn {
 	font-family: 'Julius Sans One', sans-serif;
@@ -178,4 +196,40 @@ padding:10px;
 background-color: azure;
 border: 1px solid #777f7b;
 width: 50%;
+}
+
+/*Change Appointment Page*/
+
+#apptListHeader {
+	font-family: 'Varela Round',sans-serif;
+	background-color:darkblue;
+	color:white;
+	font-size: 14px;
+	border:none;
+	margin:0px;
+}
+
+#apptListTable {
+	margin: 20px auto auto auto;
+	
+	font-size: 15px;
+	text-align: center;
+	margin:auto;
+}
+
+
+/*prescription Page*/
+.prescDetail {
+	margin: 5px 0px 5px 10px;
+	padding: 10px;
+	background-color: azure;
+	border: 1px solid red;
+	width: 90%;
+}
+
+/* Regex & Valid Info Form*/
+.errorMsg {
+	font-family:DengXian;
+	color:red;
+	font-size:14px;
 }

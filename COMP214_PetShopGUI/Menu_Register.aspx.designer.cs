@@ -22,6 +22,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.TextBox fName;
         
         /// <summary>
+        /// reqFname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFname;
+        
+        /// <summary>
         /// lName control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.TextBox lName;
         
         /// <summary>
+        /// reqLname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLname;
+        
+        /// <summary>
         /// pNumber control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pNumber;
+        
+        /// <summary>
+        /// pnumCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pnumCheck;
         
         /// <summary>
         /// eMail control.
@@ -56,6 +83,15 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label emailCheck;
+        
+        /// <summary>
+        /// checkEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button checkEmail;
         
         /// <summary>
         /// register control.
@@ -121,12 +157,12 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button registerPet;
         
         /// <summary>
-        /// checking control.
+        /// test control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label checking;
+        protected global::System.Web.UI.WebControls.Label test;
     }
 }

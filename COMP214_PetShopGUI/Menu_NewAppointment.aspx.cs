@@ -20,7 +20,7 @@ namespace COMP214_PetShopGUI
         // 재활용 for email
         string Oid { get; set; }
 
-        // 필요없는 정보?
+        
         string firstname { get; set; }
         string lastname { get; set; }
 
@@ -61,7 +61,7 @@ namespace COMP214_PetShopGUI
                     // Display dropdownlist with Vet ID 
                     ConnectionClass.VetIDList(Vids);
                     vetIDList.DataSource = Vids.VetIDs;
-                    vetIDList.DataTextField = Vids.VetIDs.Columns["ID"].ToString();
+                    vetIDList.DataTextField = Vids.VetIDs.Columns["NAME"].ToString();
                     vetIDList.DataValueField = Vids.VetIDs.Columns["ID"].ToString();
                     vetIDList.DataBind();
 
@@ -100,8 +100,6 @@ namespace COMP214_PetShopGUI
 
             Oid = cusIDList.SelectedValue.ToString();
 
-            //check.Text = Oid;
-
             CustomerPets CPets = new CustomerPets(Oid, pids, pnames);
 
             try
@@ -124,15 +122,7 @@ namespace COMP214_PetShopGUI
             }
         }
 
-        /*protected void selectmonth(object sender, EventArgs e)
-        {
-            day.Items.Clear();
-
-            for (int i = 1; i <= System.DateTime.DaysInMonth(int.Parse(year.SelectedValue), int.Parse(month.SelectedValue)); i++)
-            {
-                day.Items.Add(new ListItem(i.ToString(), i.ToString()));
-            }
-        }*/
+    
 
         protected void selectmonth(object sender, EventArgs e)
         {
@@ -171,17 +161,13 @@ namespace COMP214_PetShopGUI
         //string apptEmail { get; set; }
         //string test = "1234";
 
-        
-
-
-        public void seeDetail_Click(object sender, EventArgs e)
+        public void Confirm(object sender, EventArgs e)
         {
             Oid = cusIDList.SelectedValue.ToString();
             Customer thisCustomer = new Customer(Oid, firstname, lastname, Thisemail, phonenum);
 
             try
             {
-
                 ConnectionClass.GetApptDetail(thisCustomer);
 
                 apptPetName = petIDList.SelectedItem.ToString();
@@ -196,7 +182,17 @@ namespace COMP214_PetShopGUI
                              "Appointment Time: " + apptTime + "<br>";
                             
                 email.Text = thisCustomer.emailAddress;
-               
+
+                vetIDList.Enabled = false;
+                cusIDList.Enabled = false;
+                petIDList.Enabled = false;
+                year.Enabled = false;
+                month.Enabled = false;
+                day.Enabled = false;
+                time.Enabled = false;
+                note.Enabled = false;
+                price.Enabled = false;
+
             }
 
             catch
@@ -234,7 +230,7 @@ namespace COMP214_PetShopGUI
             catch
             {
                 Response.Write("<script type='text/javascript'>");
-                Response.Write("alert('Failed ');");
+                Response.Write("alert('Please check required fields again. ');");
                 Response.Write("</script>");
             }
 
@@ -252,19 +248,23 @@ namespace COMP214_PetShopGUI
 
             subject = "Appointment Confirmation for " + fname.Text;
 
-            content = "Hello " + fname.Text + " ," + "the following appointment has been booked for you:" + "<br>" + details.Text;
+            content = @"<h2 style='color: blue; '> Hello " + fname.Text + " ," + " the following appointment has been booked for you: </h2> " + "<br>" + 
+                      details.Text;
 
 
             AppointmentEmail newemail = new AppointmentEmail(subject,content,Thisemail);
             try
             {
                 ConnectionClass.SendConfirmEmail(newemail);
+                Response.Write("<script type='text/javascript'>");
+                Response.Write("alert('Appointment Confirm Email Sent Successfully! ');");
+                Response.Write("</script>");
             }
 
             catch
             {
                 Response.Write("<script type='text/javascript'>");
-                Response.Write("alert('Failed ');");
+                Response.Write("alert('Sending Email Failed ');");
                 Response.Write("</script>");
             } 
         }

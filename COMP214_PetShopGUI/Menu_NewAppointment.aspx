@@ -1,21 +1,35 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_NewAppointment.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_NewAppointment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_NewAppointment.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_NewAppointment" UnobtrusiveValidationMode="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
-* * New Appointment * * <hr />
+<strong>* * New Appointment * * </strong>
+
+<hr />
 
 <table style="width:60%">
 <tr>
-<td>VET ID: </td>
-<td><asp:DropDownList ID="vetIDList" runat="server"></asp:DropDownList></td>
+<td>VET : </td>
+<td><asp:DropDownList ID="vetIDList" runat="server" CausesValidation="True" AppendDataBoundItems="True" >
+	<asp:ListItem Text="- Choose VET - " Selected="True" Value=""></asp:ListItem>
+    </asp:DropDownList>
+	<asp:RequiredFieldValidator ID="reqVetID" runat="server" ErrorMessage=" * Please select VET " ControlToValidate="vetIDList"  CssClass="errorMsg"></asp:RequiredFieldValidator>
+</td>
 </tr>
 
 <tr>
-<td>Customer Name:</td>
-<td><asp:DropDownList ID="cusIDList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectcustomer" ></asp:DropDownList></td>
+<td>Customer : </td>
+<td><asp:DropDownList ID="cusIDList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectcustomer" AppendDataBoundItems="True" >
+	<asp:ListItem Text="- Choose Customer - " Selected="True" Value=""></asp:ListItem>
+    </asp:DropDownList>
+	<asp:RequiredFieldValidator ID="reqCusID" runat="server" ErrorMessage=" * Please select Customer " ControlToValidate="cusIDList"  CssClass="errorMsg"></asp:RequiredFieldValidator>
+</td>
 </tr>
 
 <tr>
-<td>Pet Name: </td>
-<td><asp:DropDownList ID="petIDList" runat="server"></asp:DropDownList></td> 
+<td>Pet Name : </td>
+<td><asp:DropDownList ID="petIDList" runat="server" AppendDataBoundItems="True">
+	<asp:ListItem Text="- Choose Pet - " Selected="True" Value=""></asp:ListItem>
+    </asp:DropDownList>
+	<asp:RequiredFieldValidator ID="reqPetID" runat="server" ErrorMessage=" * Please select Pet " ControlToValidate="petIDList"  CssClass="errorMsg"></asp:RequiredFieldValidator>
+</td> 
 </tr>
 
 <tr>
@@ -34,26 +48,30 @@
 
 <tr>
 <td>Note: </td>
-<td><asp:TextBox ID="note" runat="server"></asp:TextBox>  </td> 
+<td><asp:TextBox ID="note" runat="server"></asp:TextBox> 
+	<asp:RequiredFieldValidator ID="reqNote" runat="server" ErrorMessage=" * Please leave note here " ControlToValidate="note"  CssClass="errorMsg"></asp:RequiredFieldValidator>
+</td> 
 </tr>
 
 <tr>
 <td>Price: </td>
-<td><asp:TextBox ID="price" runat="server"></asp:TextBox>  </td> 
+<td><asp:TextBox ID="price" runat="server"></asp:TextBox> 
+	<asp:RequiredFieldValidator ID="reqPrice" runat="server" ErrorMessage=" * Please insert price here " ControlToValidate="note"  CssClass="errorMsg"></asp:RequiredFieldValidator>
+</td> 
 </tr>
 
 </table>
 
-<asp:Button ID="seeDetail" runat="server" Text="See Detail" CssClass="Btn" BorderStyle="None" OnClick="seeDetail_Click" /><br />
+&nbsp; &nbsp;<asp:Button ID="ConfirmDetail" runat="server" Text="Confirm" CssClass="Btn" BorderStyle="None" OnClick="Confirm" /><br />
 
 <div class="apptdetail">
 <asp:Label ID="fname" runat="server" Text="first name" Visible="False"></asp:Label><br />
 <asp:Label ID="details" runat="server" Text="New Appointment Detail display here" ></asp:Label><br />
 <asp:Label ID="email" runat="server" Text="email"  Visible="False" ></asp:Label>
 </div>
-<asp:Button ID="saveAppointment" runat="server" Text="Save Appointment"  BorderStyle="None"   CssClass="Btn" BackColor="#009900" OnClick="saveAppointment_Click"/>&nbsp;
-<asp:Button ID="sendConfirmEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None" BackColor="#003399" OnClick="sendConfirmEmail_Click"  /> <br />
-<asp:Label ID="check1" runat="server" Text="email"  BackColor="#FFCCCC"></asp:Label><br />
+&nbsp;&nbsp; &nbsp;<asp:Button ID="saveAppointment" runat="server" Text="Save Appointment"  BorderStyle="None"   CssClass="Btn"  OnClick="saveAppointment_Click" BackColor="#660066" ForeColor="#FFCCFF" />&nbsp;
+&nbsp;<asp:Button ID="sendConfirmEmail" runat="server" Text="Send Email" CssClass="Btn" BorderStyle="None"  OnClick="sendConfirmEmail_Click"  BackColor="#000099" ForeColor="#99CCFF" /> <br />
+<br />
 
 
 </asp:Content>

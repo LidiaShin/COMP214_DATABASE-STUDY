@@ -22,6 +22,42 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// CUSTOMER control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CUSTOMER;
+        
+        /// <summary>
+        /// CusBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CusBtn;
+        
+        /// <summary>
+        /// APPT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl APPT;
+        
+        /// <summary>
+        /// ApptBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ApptBtn;
+        
+        /// <summary>
         /// PRESC control.
         /// </summary>
         /// <remarks>
@@ -40,40 +76,40 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button PrescBtn;
         
         /// <summary>
-        /// ADMIN control.
+        /// VET control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ADMIN;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl VET;
         
         /// <summary>
-        /// AdminBtn control.
+        /// VetBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AdminBtn;
+        protected global::System.Web.UI.WebControls.Button VetBtn;
         
         /// <summary>
-        /// TEST control.
+        /// INVENTORY control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TEST;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl INVENTORY;
         
         /// <summary>
-        /// CusBtn control.
+        /// InvenBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CusBtn;
+        protected global::System.Web.UI.WebControls.Button InvenBtn;
         
         /// <summary>
         /// Submenu control.
@@ -83,24 +119,6 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Submenu;
-        
-        /// <summary>
-        /// NewPresc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewPresc;
-        
-        /// <summary>
-        /// RePresc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RePresc;
         
         /// <summary>
         /// Register control.
@@ -119,6 +137,69 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button NewAppt;
+        
+        /// <summary>
+        /// ViewAppt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ViewAppt;
+        
+        /// <summary>
+        /// NewPresc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NewPresc;
+        
+        /// <summary>
+        /// ViewPresc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ViewPresc;
+        
+        /// <summary>
+        /// RePresc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RePresc;
+        
+        /// <summary>
+        /// Commision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Commision;
+        
+        /// <summary>
+        /// MedExam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MedExam;
+        
+        /// <summary>
+        /// MedRegis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MedRegis;
         
         /// <summary>
         /// main control.

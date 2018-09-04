@@ -19,17 +19,17 @@ ReIsuse Prescription
 		<Columns>
 			<asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
 			<asp:BoundField DataField="ORDER_DATE" HeaderText="ORDER_DATE" SortExpression="ORDER_DATE" />
-			<asp:BoundField DataField="DISCOUNT" HeaderText="DISCOUNT" SortExpression="DISCOUNT" />
+			
 			<asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
-			<asp:BoundField DataField="PETID" HeaderText="PETID" SortExpression="PETID" />
-			<asp:BoundField DataField="EXTRA" HeaderText="EXTRA" SortExpression="EXTRA" />
+			
+			
 			<asp:BoundField DataField="PRE_ID" HeaderText="PRE_ID" SortExpression="PRE_ID" />
 		</Columns>
 	</asp:GridView>
 
 
 
-	<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT * FROM &quot;PRESCRIPTION&quot;"></asp:SqlDataSource>
+	<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT * FROM &quot;PRESCRIPTION_ISSUELOG&quot;"></asp:SqlDataSource>
 
 </div>
 

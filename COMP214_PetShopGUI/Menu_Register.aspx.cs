@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
 namespace COMP214_PetShopGUI
 {
     public partial class registerCustomer : System.Web.UI.Page
@@ -16,10 +18,18 @@ namespace COMP214_PetShopGUI
 
         // Set customer properties
         string ownerID { get; set; }
+
         // also can be used to pet class
         string firstname { get; set; }
         string lastname { get; set; }
-        string emailaddress { get; set; }
+
+        string emailaddress {
+            get;set;
+          }
+
+
+
+
         string phonenum { get; set; }
 
         // Set property for ownerID dropboxlist
@@ -35,13 +45,14 @@ namespace COMP214_PetShopGUI
                  
             if (!IsPostBack)
             {
+         
                 // Display dropdownlist with Customer ID (=OwnerID)
                 OwnerID Ids = new OwnerID(ids);
                 try
                 {
                     ConnectionClass.OnwerIDList(Ids);
                     OwnerID.DataSource = Ids.OwnerIDs;
-                    OwnerID.DataTextField = Ids.OwnerIDs.Columns["ID"].ToString();
+                    OwnerID.DataTextField = Ids.OwnerIDs.Columns["NAME"].ToString();
                     OwnerID.DataValueField = Ids.OwnerIDs.Columns["ID"].ToString();
                     OwnerID.DataBind();
                 }
@@ -58,7 +69,7 @@ namespace COMP214_PetShopGUI
                     month.Items.Add(new ListItem(monthnum.GetAbbreviatedMonthName(i).ToString(), i.ToString()));
                 }
 
-                for(int i = 1960; i <= System.DateTime.Now.Year; i++)
+                for(int i = 1980; i <= System.DateTime.Now.Year; i++)
                 {
                     year.Items.Add(new ListItem(i.ToString(), i.ToString()));
                 }
@@ -74,6 +85,101 @@ namespace COMP214_PetShopGUI
         }
 
         //string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+        protected void checkPnumEmail_Click(object sender, EventArgs e)
+        {
+            emailaddress = eMail.Text;
+            phonenum = pNumber.Text;
+
+            // checking phone number & email (1) validate phone number & email format with regex
+            if (Regex.IsMatch(emailaddress, "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$") 
+                && Regex.IsMatch(phonenum, "^[0][1-9]\\d{9}$|^[1-9]\\d{9}$"))
+            {
+                emailCheck.Text = " * Valid email address :)";
+                emailCheck.ForeColor= System.Drawing.Color.Blue;
+                emailCheck.Visible = true;
+
+                pnumCheck.Text = " * Valid phone number :)";
+                pnumCheck.ForeColor = System.Drawing.Color.Blue;
+                pnumCheck.Visible = true;
+
+                // checking email (2) avoid duplicate email in DB
+                // Initialize Customer Class & connect to Oracle DB via ConnectionClass  
+
+
+                Customer newCustomer = new Customer(ownerID, firstname, lastname, emailaddress, phonenum);
+                ConnectionClass.AvoidDuplicateEmail(newCustomer);
+
+                // if email is existing one,prompt user to use other email address
+                if (newCustomer.emailAddress == "EXIST")
+                {
+                    // prompt user to use other email
+                    emailCheck.Text = " * Already in use";
+                    emailCheck.ForeColor = System.Drawing.Color.Red;
+                    emailCheck.Visible = true;
+
+                    Response.Write("<script type='text/javascript'>");
+                    Response.Write("alert('This email address is already registered, Please use another email');");
+                    Response.Write("</script>");
+                }
+
+                else
+                {
+                    emailCheck.Text = " * You can use this email address";
+                    emailCheck.Visible = true;
+
+                    Response.Write("<script type='text/javascript'>");
+                    Response.Write("alert('Information check finished, Ready to register :) ');");
+                    Response.Write("</script>");
+
+                    fName.Enabled = false;
+                    lName.Enabled = false;
+                    pNumber.Enabled = false;
+                    eMail.Enabled = false;
+
+                    register.Visible = true;
+                }
+            }
+
+
+            else if(Regex.IsMatch(emailaddress, "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$"))
+            {
+            
+                pnumCheck.Text = " * Please enter a valid phone number.";
+                pnumCheck.ForeColor = System.Drawing.Color.Red;
+                pnumCheck.Visible = true;
+
+                emailCheck.Text = " * Valid email address :)";
+                emailCheck.ForeColor = System.Drawing.Color.Blue;
+                emailCheck.Visible = true;
+
+
+            }
+
+            else if (Regex.IsMatch(phonenum, "^[0][1-9]\\d{9}$|^[1-9]\\d{9}$"))
+            {
+                emailCheck.Text = " * Please enter a valid email address.";
+                emailCheck.ForeColor = System.Drawing.Color.Red;
+                emailCheck.Visible = true;
+
+                pnumCheck.Text = " * Valid phone number :)";
+                pnumCheck.ForeColor = System.Drawing.Color.Blue;
+                pnumCheck.Visible = true;
+            }
+
+            else
+            {
+                pnumCheck.Text = " * Please enter a valid phone number.";
+                pnumCheck.ForeColor = System.Drawing.Color.Red;
+                pnumCheck.Visible = true;
+
+                emailCheck.Text = " * Please enter a valid email address.";
+                emailCheck.ForeColor = System.Drawing.Color.Red;
+                emailCheck.Visible = true;
+            }
+
+        }
+
         protected void register_Click(object sender, EventArgs e)
         {
             firstname = fName.Text;
@@ -81,32 +187,10 @@ namespace COMP214_PetShopGUI
             emailaddress = eMail.Text;
             phonenum = pNumber.Text;
 
-            // checking email (1) validate email format with regex
-
-            if (Regex.IsMatch(emailaddress, "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$"))
-            {
-                emailCheck.Text = "Valid email";
-
-
-             // checking email (2) avoid duplicate email with class
-
-             // Initialize Customer Class & connect to Oracle DB via ConnectionClass  
-
-                Customer newCustomer = new Customer(ownerID,firstname, lastname, emailaddress, phonenum);
-                ConnectionClass.AvoidDuplicateEmail(newCustomer);
-                
-                // if email is existing one,prompt user to use other email address
-                if(newCustomer.emailAddress == "EXIST")
-                {
-                // prompt user to use other email
-                    Response.Write("<script type='text/javascript'>");
-                    Response.Write("alert('Please use other email');");
-                    Response.Write("</script>");
-                }
-
-                // else, proceed register process (insert values into customer table)
-                else
-                {
+           
+             //Initialize Customer Class & connect to Oracle DB via ConnectionClass  
+               Customer newCustomer = new Customer(ownerID,firstname, lastname, emailaddress, phonenum);
+               
                     try
                     {
                         ConnectionClass.Register(newCustomer);
@@ -117,7 +201,7 @@ namespace COMP214_PetShopGUI
                     catch
                     {                    
                         Response.Write("<script type='text/javascript'>");
-                        Response.Write("alert('Failed ');");
+                        Response.Write("alert('Please make sure each information inserted properly ');");
                         Response.Write("</script>");                  
                     }
 
@@ -125,42 +209,7 @@ namespace COMP214_PetShopGUI
                     {
                         //check.Text = newCustomer.phoneNumber;
                     }
-                }
-                // checking email (2) duplicate email - CodeBehind ver. (without class)
-                /*  
-                 using (OracleConnection cn = new OracleConnection(cs))
-                 {                  
-                  string QueryA = string.Format(@"select * from CUSTOMER where EMAIL = '{0}'", emailaddress);
-
-                 OracleCommand cmd = new OracleCommand(QueryA, cn);
-                 try {
-                         cn.Open();
-                         //cmd.ExecuteNonQuery();
-                         OracleDataAdapter da = new OracleDataAdapter(cmd);
-                         DataTable dt = new DataTable();
-                         DataSet ds = new DataSet();
-                         da.Fill(dt);
-                         ds.Tables.Add(dt);
-                         if (dt.Rows.Count > 0)
-                              {
-                                Response.Write("<script type='text/javascript'>");
-                                Response.Write("alert('Please use other email');");
-                                Response.Write("</script>");
-                                }
-                     }
-
-                  finally
-                     {
-                     cn.Close();
-                     }
-                 } // CODE BEHIND END
-                 */
-            }
-            // if email format is invalid, 
-            else
-            {
-                emailCheck.Text = "Invalid email";
-            }
+              
         }
         protected void selectdate(object sender, EventArgs e)
         {
@@ -184,14 +233,16 @@ namespace COMP214_PetShopGUI
             catch
             {
                 Response.Write("<script type='text/javascript'>");
-                Response.Write("alert('Failed ');");
+                Response.Write("alert('please fill out all required fields ');");
                 Response.Write("</script>");
             }
 
             finally
             {
-                checking.Text = ownerID + " " + PetName + " " + PetBirthday;
+                
             }
         }
+
+       
     }
 }

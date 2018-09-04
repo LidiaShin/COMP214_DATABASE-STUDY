@@ -22,6 +22,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.DropDownList vetIDList;
         
         /// <summary>
+        /// reqVetID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqVetID;
+        
+        /// <summary>
         /// cusIDList control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.DropDownList cusIDList;
         
         /// <summary>
+        /// reqCusID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqCusID;
+        
+        /// <summary>
         /// petIDList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList petIDList;
+        
+        /// <summary>
+        /// reqPetID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPetID;
         
         /// <summary>
         /// year control.
@@ -85,6 +112,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.TextBox note;
         
         /// <summary>
+        /// reqNote control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqNote;
+        
+        /// <summary>
         /// price control.
         /// </summary>
         /// <remarks>
@@ -94,13 +130,22 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.TextBox price;
         
         /// <summary>
-        /// seeDetail control.
+        /// reqPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button seeDetail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPrice;
+        
+        /// <summary>
+        /// ConfirmDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ConfirmDetail;
         
         /// <summary>
         /// fname control.
@@ -146,14 +191,5 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button sendConfirmEmail;
-        
-        /// <summary>
-        /// check1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label check1;
     }
 }
