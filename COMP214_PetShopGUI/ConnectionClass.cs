@@ -266,8 +266,8 @@ VALUES(PREID_SEQ.NEXTVAL,{0},SYSDATE)", Convert.ToInt64(preitem.PetID));
         {
             string jQuery = string.Format(@"INSERT INTO VET_APPOINTMENT (ID,VET_ID,PET_ID,DATE_TIME,NOTES,PRICE,DISCOUNT)
 VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH24:MI'),'{3}','{4}',SEARCHDISCOUNT({1}))", newappt.VetID, newappt.PetID, newappt.VetApptTime, newappt.VetApptNote, newappt.VetApptPrice);
-            // Convert.ToInt64 주의  
-            // SEARCHDISCOUNT 는 펑션
+            // Convert.ToInt64 
+            // SEARCHDISCOUNT : function
 
             cmdString = new OracleCommand(jQuery, cntString);
             
@@ -339,7 +339,7 @@ VALUES(VETAPPT_ID_SEQ.nextval,'{0}','{1}',TO_DATE('{2}','YYYYMONDDHH24:MI'),'{3}
 
         public static void SaveNewPresc(PrescDetail newPresc)
         {
-            //string lQuery = string.Format(@"INSERT INTO PRESCRIPTION_DETAIL (PRE_ID,MED_ID,QTY) VALUES({0},{1},{2})", newPresc.MedID,newPresc.MedID,newPresc.MedQty);
+          
             cmdString = new OracleCommand();
 
             try
@@ -453,6 +453,90 @@ owner_id in (select id from customer where lower(first_name|| last_name) LIKE lo
                 cmdString.ExecuteNonQuery();
 
             }
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+        public static void PetLists(InquiryPet pets)
+        {
+            string pQuery = string.Format(@"SELECT ID AS PET_ID,
+(SELECT FIRST_NAME || ' ' || LAST_NAME FROM CUSTOMER WHERE ID = PET.OWNER_ID) AS CUSTOMER,
+NAME AS PETNAME,
+TO_CHAR(BIRTHDAY,'YYYY/MON/DD') as PET_BIRTHDAY  from pet where owner_id in (select id from customer where lower(first_name||last_name) LIKE lower('%{0}%'))", pets.customerName);
+            cmdString = new OracleCommand(pQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                OracleDataAdapter da = new OracleDataAdapter(cmdString);
+                DataTable dt = new DataTable();
+
+                DataSet ds = new DataSet();
+                da.Fill(dt);
+                ds.Tables.Add(dt);
+
+                pets.petList = ds.Tables[0];
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+        public static void SearchPrescList(SearchPresc presc)
+        {
+            string pQuery = string.Format(@"SELECT PRE_ID AS NO,
+(select name from PET where id=PRESCRIPTION_LIST.PET_ID) as PET,
+ORDER_DATE AS ISSUEDATE
+FROM PRESCRIPTION_LIST
+WHERE PET_ID IN (select PET.ID  from PET join customer on PET.OWNER_ID=customer.ID where
+owner_id in (select id from customer where lower(first_name||last_name) LIKE lower('%{0}%')))",presc.CusName);
+            cmdString = new OracleCommand(pQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                OracleDataAdapter da = new OracleDataAdapter(cmdString);
+                DataTable dt = new DataTable();
+
+                DataSet ds = new DataSet();
+                da.Fill(dt);
+                ds.Tables.Add(dt);
+                presc.PrescTable = ds.Tables[0];
+          
+            }
+
+            finally
+            {
+                cntString.Close();
+            }
+        }
+
+        public static void ViewPrescription(ViewPresc presc)
+        {
+            string pQuery = string.Format(@"SELECT (select name from MEDICATION where id=PRESCRIPTION_DETAIL.MED_ID ) as NAME,
+MED_ID AS MED_ID,
+QTY AS QUANTITY
+FROM PRESCRIPTION_DETAIL
+WHERE PRE_ID='{0}'", presc.PNumber);
+            cmdString = new OracleCommand(pQuery, cntString);
+
+            try
+            {
+                cntString.Open();
+                OracleDataAdapter da = new OracleDataAdapter(cmdString);
+                DataTable dt = new DataTable();
+
+                DataSet ds = new DataSet();
+                da.Fill(dt);
+                ds.Tables.Add(dt);
+                presc.Prescription = ds.Tables[0];
+
+            }
+
             finally
             {
                 cntString.Close();

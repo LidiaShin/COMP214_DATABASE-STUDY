@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_NewAppointment.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_NewAppointment" UnobtrusiveValidationMode="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
-<strong>* * New Appointment * * </strong>
+<strong> ▶ New Appointment </strong>
 
 <hr />
 

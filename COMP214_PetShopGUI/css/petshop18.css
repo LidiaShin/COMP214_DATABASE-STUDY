@@ -3,12 +3,11 @@
 
 /*master page */
 #header {
-	background-color:white;
+	background-color: white;
 	text-align: center;
 	font-size: 40px;
-	font-family: 'Love Ya Like A Sister', cursive;
-	color: #383839;	
-	margin-top:10px;
+	font-family: 'Baloo Tammudu', cursive;
+	color: #383839;
 }
 
 .logo {
@@ -28,8 +27,6 @@ ul {
 li {
 	display: inline;
 	margin: 0px 16px 0px 16px;
-	
-	
 	font-weight: 500;
 	font-size: 14px;
 	text-decoration: none;
@@ -89,7 +86,6 @@ li {
 
 	.Btn:hover {
 		color:red;
-
 		font-weight:900;
 	}
 
@@ -120,11 +116,20 @@ li {
 
 
 
-/*homepage*/
+.menu {
 
-.signupBox {
-	padding: 20px;
-	
+	color:darkslategrey;
+}
+
+
+
+
+
+
+/*Inquiry*/
+
+.viewBox {
+	padding: 20px;	
 	text-align:left;
 	float:right;
 	vertical-align:baseline;
@@ -217,6 +222,21 @@ width: 50%;
 	margin:auto;
 }
 
+
+
+.rescheduleBox{
+	padding: 20px;
+	
+	text-align: left;
+	vertical-align: baseline;
+	-moz-box-shadow: 0px 1px 2px 2px #23365a;
+	-webkit-box-shadow: 0px 1px 2px 2px #23365a;
+	box-shadow: 0px 1px 1px 1px #23365a;
+	border-radius: 3px;
+	background-color: white;
+	font-family: 'Dosis', sans-serif;
+	color: #2c4471;
+}
 
 /*prescription Page*/
 .prescDetail {

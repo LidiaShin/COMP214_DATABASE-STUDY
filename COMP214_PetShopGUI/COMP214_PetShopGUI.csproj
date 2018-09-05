@@ -85,7 +85,7 @@
     <Content Include="Menu_ReIssuePresc.aspx" />
     <Content Include="Menu_ViewPresc.aspx" />
     <Content Include="TestConnectionPage.aspx" />
-    <Content Include="home.aspx" />
+    <Content Include="Menu_ViewPet.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -96,6 +96,7 @@
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerPets.cs" />
+    <Compile Include="InquiryPet.cs" />
     <Compile Include="Medication.cs" />
     <Compile Include="MedicationRegister.aspx.cs">
       <DependentUpon>MedicationRegister.aspx</DependentUpon>
@@ -181,6 +182,7 @@
     <Compile Include="Menu_ReIssuePresc.aspx.designer.cs">
       <DependentUpon>Menu_ReIssuePresc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchPresc.cs" />
     <Compile Include="TestConnectionPage.aspx.cs">
       <DependentUpon>TestConnectionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,15 +191,16 @@
       <DependentUpon>TestConnectionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestTablePET.cs" />
-    <Compile Include="home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Menu_ViewPet.aspx.cs">
+      <DependentUpon>Menu_ViewPet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Menu_ViewPet.aspx.designer.cs">
+      <DependentUpon>Menu_ViewPet.aspx</DependentUpon>
     </Compile>
     <Compile Include="VetAppointment.cs" />
     <Compile Include="VetID.cs" />
+    <Compile Include="ViewPresc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

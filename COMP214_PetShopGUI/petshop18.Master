@@ -7,7 +7,7 @@
     <title>PetShop 18</title>
  
 
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dosis|Love+Ya+Like+A+Sister|Varela+Round|Julius+Sans+One|Varela+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dosis|Love+Ya+Like+A+Sister|Varela+Round|Julius+Sans+One|Varela+Round|Baloo+Tammudu" rel="stylesheet">
 <link href="css/petshop18.css" rel="stylesheet" type="text/css" />
 <script src="js/petShop18.js"></script>
 
@@ -17,15 +17,14 @@
 <form id="form1" runat="server">
 
 <div id="header">  
-
-ADV DATABASE CONCEPT GROUP PROJECT 
+Management System For Animal Hospital
 </div>  
 
 <ul>  
 	    <li runat="server" id="CUSTOMER"><asp:Button ID="CusBtn" runat="server" Text="Customer" CssClass="mainBtn" BorderStyle="None" OnClick="CusBtn_Click"  CausesValidation="False" /></li>  
 	    <li runat="server" id="APPT"><asp:Button ID="ApptBtn" runat="server" Text="Appointment" CssClass="mainBtn" BorderStyle="None" OnClick="ApptBtn_Click"   CausesValidation="False" /></li>  
         <li runat="server" id="PRESC"><asp:Button ID="PrescBtn" runat="server" Text="Prescription" CssClass="mainBtn" BorderStyle="None" OnClick="PrescBtn_Click" CausesValidation="False" /></li>  
-        <li runat="server" id="VET"><asp:Button ID="VetBtn" runat="server" Text="veterinarian" CssClass="mainBtn" BorderStyle="None" OnClick="VetBtn_Click"  CausesValidation="False" /></li>  
+        
 	    <li runat="server" id="INVENTORY"><asp:Button ID="InvenBtn" runat="server" Text="Inventory" CssClass="mainBtn" BorderStyle="None" OnClick="InvenBtn_Click"  CausesValidation="False" /></li>  
         
 </ul>  
@@ -33,18 +32,15 @@ ADV DATABASE CONCEPT GROUP PROJECT
 <div id="Submenu" runat="server">
 
 <asp:Button ID="Register" runat="server" Text="Register" CssClass="SubBtn" BorderStyle="None"  Visible="False" PostBackUrl="~/Menu_Register.aspx" CausesValidation="false" />
+<asp:Button ID="ViewPet" runat="server" Text="ViewPet" CssClass="SubBtn" BorderStyle="None"  Visible="False" PostBackUrl="~/Menu_ViewPet.aspx" CausesValidation="false" />
 
 <asp:Button ID="NewAppt" runat="server" Text="New" CssClass="SubBtn" BorderStyle="None"  Visible="False"  Style="margin-left:130px;" PostBackUrl="~/Menu_NewAppointment.aspx" CausesValidation="false"  />
 <asp:Button ID="ViewAppt" runat="server" Text="Change" CssClass="SubBtn" BorderStyle="None"  Visible="False"   CausesValidation="false"  PostBackUrl="~/Menu_ChangeAppointment.aspx" />
 
-<asp:Button ID="NewPresc" runat="server" Text="New" CssClass="SubBtn" BorderStyle="None" Style="margin-left:250px;" PostBackUrl="~/Menu_IssuePresc.aspx" Visible="False" CausesValidation="false"  />
-<asp:Button ID="ViewPresc" runat="server" Text="View" CssClass="SubBtn" BorderStyle="None" PostBackUrl="~/Menu_ViewPresc.aspx" Visible="False" CausesValidation="false" />
+<asp:Button ID="NewPresc" runat="server" Text="New" CssClass="SubBtn" BorderStyle="None" Style="margin-left:290px;" PostBackUrl="~/Menu_IssuePresc.aspx" Visible="False" CausesValidation="false"  />
 <asp:Button ID="RePresc" runat="server" Text="ReIssue" CssClass="SubBtn" BorderStyle="None" PostBackUrl="~/Menu_ReIssuePresc.aspx" Visible="False" CausesValidation="false" />
 
-<asp:Button ID="Commision" runat="server" Text="Commision" CssClass="SubBtn" BorderStyle="None" Style="margin-left:400px;" PostBackUrl="~/Menu_Commision.aspx" Visible="false" CausesValidation="false"  />
-<asp:Button ID="MedExam" runat="server" Text="MedExam" CssClass="SubBtn" BorderStyle="None" PostBackUrl="~/Menu_MedExam.aspx" Visible="false" CausesValidation="false"  />
-
-<asp:Button ID="MedRegis" runat="server" Text="NewItem" CssClass="SubBtn" BorderStyle="None" Style="margin-left:600px;" PostBackUrl="~/Menu_RegisterMedItem.aspx" Visible="false" CausesValidation="false" />
+<asp:Button ID="MedRegis" runat="server" Text="NewItem" CssClass="SubBtn" BorderStyle="None" Style="margin-left:450px;" PostBackUrl="~/Menu_RegisterMedItem.aspx" Visible="false" CausesValidation="false" />
 </div>
 
 <div id="mainArea">
@@ -60,7 +56,7 @@ ADV DATABASE CONCEPT GROUP PROJECT
 </div>	
 
 <footer id="footer">  
-ⓒ 2018 Centennial COMP214 GROUP PROJECT  &nbsp;&nbsp;&nbsp;&nbsp;
+ⓒ 2018 Centennial COMP214 PROJECT  &nbsp;&nbsp;&nbsp;&nbsp;
 </footer> 
 </form>
 

@@ -76,24 +76,6 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button PrescBtn;
         
         /// <summary>
-        /// VET control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl VET;
-        
-        /// <summary>
-        /// VetBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VetBtn;
-        
-        /// <summary>
         /// INVENTORY control.
         /// </summary>
         /// <remarks>
@@ -130,6 +112,15 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button Register;
         
         /// <summary>
+        /// ViewPet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ViewPet;
+        
+        /// <summary>
         /// NewAppt control.
         /// </summary>
         /// <remarks>
@@ -157,15 +148,6 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button NewPresc;
         
         /// <summary>
-        /// ViewPresc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ViewPresc;
-        
-        /// <summary>
         /// RePresc control.
         /// </summary>
         /// <remarks>
@@ -173,24 +155,6 @@ namespace COMP214_PetShopGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button RePresc;
-        
-        /// <summary>
-        /// Commision control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Commision;
-        
-        /// <summary>
-        /// MedExam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MedExam;
         
         /// <summary>
         /// MedRegis control.

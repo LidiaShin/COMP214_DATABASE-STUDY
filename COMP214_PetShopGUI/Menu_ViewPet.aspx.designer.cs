@@ -22,13 +22,13 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Image homeImage;
         
         /// <summary>
-        /// petid control.
+        /// cusName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox petid;
+        protected global::System.Web.UI.WebControls.TextBox cusName;
         
         /// <summary>
         /// check control.
@@ -40,30 +40,12 @@ namespace COMP214_PetShopGUI {
         protected global::System.Web.UI.WebControls.Button check;
         
         /// <summary>
-        /// pname control.
+        /// petlisttable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pname;
-        
-        /// <summary>
-        /// pbirthday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pbirthday;
-        
-        /// <summary>
-        /// oid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label oid;
+        protected global::System.Web.UI.WebControls.GridView petlisttable;
     }
 }

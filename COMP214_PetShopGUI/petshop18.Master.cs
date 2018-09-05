@@ -18,12 +18,13 @@ namespace COMP214_PetShopGUI
         {
             NewPresc.Visible = true;
             RePresc.Visible = true;
-            ViewPresc.Visible = true;
+            
             Register.Visible = false;
+            ViewPet.Visible = false;
+
             NewAppt.Visible = false;
             ViewAppt.Visible = false;
-            Commision.Visible = false;
-            MedExam.Visible = false;
+           
             MedRegis.Visible = false;
 
         }
@@ -31,14 +32,14 @@ namespace COMP214_PetShopGUI
         protected void CusBtn_Click(object sender, EventArgs e)
         {
             Register.Visible = true;
-            NewPresc.Visible = false;
-            ViewPresc.Visible = false;
-            RePresc.Visible = false;
-            ViewPresc.Visible = false;
+            ViewPet.Visible = true;
+
+            NewPresc.Visible = false; 
+            RePresc.Visible = false; 
+            
             NewAppt.Visible = false;
             ViewAppt.Visible = false;
-            Commision.Visible = false;
-            MedExam.Visible = false;
+            
             MedRegis.Visible = false;
         }
 
@@ -46,40 +47,28 @@ namespace COMP214_PetShopGUI
         {
             NewAppt.Visible = true;       
             ViewAppt.Visible = true;
+
             NewPresc.Visible = false;
-            ViewPresc.Visible = false;
             RePresc.Visible = false;
+
             Register.Visible = false;
-            Commision.Visible = false;
-            MedExam.Visible = false;
+            ViewPet.Visible = false;
+           
             MedRegis.Visible = false;
         }
 
-        protected void VetBtn_Click(object sender, EventArgs e)
-        {
-            Commision.Visible = true;
-            MedExam.Visible = true;
-            NewAppt.Visible = false;
-            ViewAppt.Visible = false;
-            NewPresc.Visible = false;
-            ViewPresc.Visible = false;
-            RePresc.Visible = false;
-            Register.Visible = false;
-            MedRegis.Visible = false;
-        }
+
 
         protected void InvenBtn_Click(object sender, EventArgs e)
         {
             MedRegis.Visible = true;
-            Commision.Visible = false;
-            MedExam.Visible = false;
+           
             NewAppt.Visible = false;
             ViewAppt.Visible = false;
             NewPresc.Visible = false;
             RePresc.Visible = false;
-            ViewPresc.Visible = false;
             Register.Visible = false;
-            
+            ViewPet.Visible = false;
         }
     }
 }

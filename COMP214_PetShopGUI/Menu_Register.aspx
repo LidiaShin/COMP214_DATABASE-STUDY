@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_Register.aspx.cs" Inherits="COMP214_PetShopGUI.registerCustomer" UnobtrusiveValidationMode="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
 
-<strong>* * Register New Customer * * </strong>
+<strong> ▶  Register New Customer</strong>
 <hr />
 
 <div>
@@ -48,23 +48,23 @@
 
 <br /><br />
 
-<strong>* * Register New Pet * * </strong>
+<strong> ▶  Register New Pet </strong>
 <hr />
 
 <table style="width:60%">
 
 <tr>
-<td>Owner : </td>
+<td> <span style="color:red;">*</span> Owner : </td>
 <td><asp:DropDownList ID="OwnerID" runat="server"></asp:DropDownList></td>
 </tr>
 
 <tr>
-<td>Pet Name : </td> 
+<td> <span style="color:red;">*</span> Pet Name : </td> 
 <td><asp:TextBox ID="pname" runat="server"></asp:TextBox></td>
 </tr>
 
 <tr>
-<td>BirthDay: </td>
+<td> <span style="color:red;">*</span> BirthDay: </td>
 <td>
 <asp:DropDownList ID="year" runat="server"></asp:DropDownList>
 <asp:DropDownList ID="month" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectmonth" ></asp:DropDownList>

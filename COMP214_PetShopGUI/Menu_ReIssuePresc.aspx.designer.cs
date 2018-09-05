@@ -13,48 +13,66 @@ namespace COMP214_PetShopGUI {
     public partial class reIssue {
         
         /// <summary>
-        /// preID control.
+        /// cusNameInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox preID;
+        protected global::System.Web.UI.WebControls.TextBox cusNameInput;
         
         /// <summary>
-        /// checkPreID control.
+        /// searchPresc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button checkPreID;
+        protected global::System.Web.UI.WebControls.Button searchPresc;
         
         /// <summary>
-        /// checkTable control.
+        /// hdnText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button checkTable;
+        protected global::System.Web.UI.WebControls.HiddenField hdnText;
         
         /// <summary>
-        /// prescriptiontable control.
+        /// PrescListTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView prescriptiontable;
+        protected global::System.Web.UI.WebControls.ListView PrescListTable;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// PrescID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label PrescID;
+        
+        /// <summary>
+        /// SeePresc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView SeePresc;
+        
+        /// <summary>
+        /// RePresc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RePresc;
     }
 }

@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_ChangeAppointment.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_ChangeAppointment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
 
-<strong>* * Change Appointment * * </strong>
+<strong> ▶ Change Appointment  </strong>
 	<hr />
 
-	<strong>1. Please Input Customer's Name </strong> <br />
+	<strong>1. Please Input Customer's Name </strong> <br /><br />
 	&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="cusNameInput" runat="server" placeholder="Type part of the name"></asp:TextBox>
 	<asp:Button ID="searchAppt" runat="server" Text="Search"  CssClass="Btn" OnClick="searchAppt_Click" /> <br />
 	
@@ -74,13 +74,13 @@
 
 	
 		<hr />
-	<strong>2. Please reschedule time </strong> <br />
-	
+	<strong>2. Please Reschedule the Appointment Time </strong> <br />
+	<div class="rescheduleBox" style="width:40%; margin-left:20px; margin-top:10px;">
 	
 	<table style="margin-left:20px;">
 	    <tr>
         <td>Appointment No : </td>
-	    <td> <asp:Label ID="ApptNo" runat="server"  Text="Appointment Number"></asp:Label></td>
+	    <td> <asp:Label ID="ApptNo" runat="server"  Text="."  BackColor="#FFFF99"></asp:Label></td>
 	    </tr>
 
 		<tr>
@@ -98,8 +98,9 @@
         </tr>
 
 	</table>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="ConfirmChange" runat="server" Text="Confirm"  CssClass="Btn" BackColor="#CC0099" ForeColor="#FFCCCC" OnClick="ConfirmChange_Click" /><br />
+	</div>
 	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="ConfirmChange" runat="server" Text="Confirm"  CssClass="Btn" BackColor="#CC0099" ForeColor="#FFCCCC" OnClick="ConfirmChange_Click" /><br />
 
 	<asp:Label ID="check" runat="server" Text=""></asp:Label>
 
