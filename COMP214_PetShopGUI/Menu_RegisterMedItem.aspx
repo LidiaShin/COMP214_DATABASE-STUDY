@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/petshop18.Master" AutoEventWireup="true" CodeBehind="Menu_RegisterMedItem.aspx.cs" Inherits="COMP214_PetShopGUI.Menu_RegisterMedItem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
-<strong>	* * Register New Item * * </strong>
+<strong>	▶ Register New Item  </strong>
 <br /><br />
 Please fill out the form below
 <hr />
